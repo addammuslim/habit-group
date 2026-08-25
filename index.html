@@ -286,35 +286,51 @@
   <main>
     
      <!-- 11. HERO -->
-  <section id="hero" class="relative h-[100svh] w-full overflow-hidden">
-    <div class="hero-media absolute inset-0">
-      <img src="https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=2400&auto=format&fit=crop"
-      alt="Sleek marble reception desk inside a moodily lit modern hotel lobby"
-      class="hidden md:block w-full h-full object-cover" />
-      <img src="https://images.unsplash.com/photo-1744782996368-dc5b7e697f4c?q=80&w=1400&auto=format&fit=crop"
-      alt="Elegant interior with tall windows, portrait view"
-      class="block md:hidden w-full h-full object-cover" />
-    </div>
-    <div class="hero-overlay absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60"></div>
-    
-    <div class="hero-label absolute top-[92px] md:top-28 left-6 md:left-14 label-light">EST. 2012 — SUKABUMI</div>
-    
-    <div class="absolute inset-x-0 px-6 md:px-14 pb-28 md:pb-16" style="top:140px;">
-      <h1 class="hero-title text-hero font-display uppercase text-[#F5F2EC]">
-        <span class="reveal-wrap block"><span data-line class="reveal-line">WE CREATE</span></span>
-        <span class="reveal-wrap block"><span data-line class="reveal-line">EXPERIENCES</span></span>
-        <span class="reveal-wrap block"><span data-line class="reveal-line">THAT LAST.</span></span>
+<!-- HERO - Fixed Mobile & Desktop -->
+<section id="hero" class="relative h-[100svh] w-full overflow-hidden">
+  
+  <!-- Background Image - Sama untuk mobile dan desktop -->
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=2400&auto=format&fit=crop" 
+         alt="HABIT GROUP hero" 
+         class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60"></div>
+  </div>
+  
+  <!-- EST. 2012 — SUKABUMI -->
+  <div class="absolute top-[80px] md:top-28 left-6 md:left-14 z-10">
+    <span class="text-[8px] md:text-xs tracking-[0.3em] text-white/50 font-medium">EST. 2012 — SUKABUMI</span>
+  </div>
+  
+  <!-- Main Title - Centered Perfectly -->
+  <div class="absolute inset-0 flex items-center justify-center px-6 md:px-14 z-10" style="padding-top: 40px;">
+    <div class="w-full max-w-6xl">
+      <h1 class="font-display uppercase text-[#F5F2EC] leading-[0.85] text-center">
+        <span class="block text-[2.5rem] sm:text-[3.2rem] md:text-[7.5rem] tracking-tight">WE CREATE</span>
+        <span class="block text-[2.5rem] sm:text-[3.2rem] md:text-[7.5rem] tracking-tight">EXPERIENCES</span>
+        <span class="block text-[2.5rem] sm:text-[3.2rem] md:text-[7.5rem] tracking-tight">THAT LAST.</span>
       </h1>
     </div>
-    
-    <div class="hero-bl absolute left-6 md:left-14 bottom-8 max-w-[220px] label-muted-on-image leading-relaxed">
-      A MODERN COLLECTION<br />OF BRANDS, SPACES<br />AND EXPERIENCES.
-    </div>
-    <div class="hero-br absolute right-6 md:right-14 bottom-8 label-muted-on-image flex flex-col items-end gap-2">
-      SCROLL TO EXPLORE
-      <span class="block w-px h-8 bg-warmwhite/40 animate-pulse"></span>
-    </div>
-  </section>
+  </div>
+  
+  <!-- Bottom Left -->
+  <div class="absolute left-6 md:left-14 bottom-6 md:bottom-8 z-10">
+    <span class="text-[7px] md:text-xs text-white/40 leading-relaxed tracking-[0.05em]">
+      A MODERN COLLECTION<br />
+      OF BRANDS, SPACES<br />
+      AND EXPERIENCES.
+    </span>
+  </div>
+  
+  <!-- Bottom Right - SCROLL -->
+  <div class="absolute right-6 md:right-14 bottom-6 md:bottom-8 z-10 flex flex-col items-end gap-1 md:gap-2">
+    <span class="text-[7px] md:text-[10px] tracking-[0.25em] uppercase text-white/30 font-medium">SCROLL</span>
+    <span class="block w-px h-8 md:h-12 bg-white/30 animate-pulse"></span>
+  </div>
+  
+  
+  
+</section>
     
     <!-- INTRO -->
     <section class="bg-[#F7F4EE] py-24 md:py-48 px-6 md:px-14 overflow-hidden relative">
@@ -348,15 +364,15 @@
         </p>
         <div class="mt-8 md:mt-10 flex flex-wrap gap-4 md:gap-6">
           <div class="flex items-center gap-2">
-            <span class="w-8 h-px bg-champagne"></span>
+            <!-- <span class="w-8 h-px bg-champagne"></span> -->
             <span class="text-xs uppercase tracking-wider">Crafted</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="w-8 h-px bg-champagne"></span>
+            <!-- <span class="w-8 h-px bg-champagne"></span> -->
             <span class="text-xs uppercase tracking-wider">Curated</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="w-8 h-px bg-champagne"></span>
+            <!-- <span class="w-8 h-px bg-champagne"></span> -->
             <span class="text-xs uppercase tracking-wider">Connected</span>
           </div>
         </div>
@@ -368,56 +384,231 @@
       </div>
     </section>
     
-    <!-- OUR WORLD — horizontal scroll -->
-    <section class="bg-[#F7F4EE] pt-16 md:pt-36 border-t hairline">
-      <div class="px-6 md:px-14 flex flex-wrap items-end justify-between gap-4 md:mb-16">
-        <h2 class="font-display text-section uppercase leading-[0.9]">OUR<br />WORLD</h2>
-        <div class="label text-xs md:text-sm max-w-[200px] text-right">SIX DISCIPLINES. ONE POINT OF VIEW.</div>
+    <!-- OUR WORLD — Dengan Popup Detail -->
+<section class="bg-[#F7F4EE] pt-16 md:pt-36 border-t hairline">
+  <div class="px-6 md:px-14 flex flex-wrap items-end justify-between gap-4 mb-6 md:mb-10">
+    <div>
+      <div class="flex items-center gap-4 mb-3">
+        <span class="w-12 h-px bg-champagne/50"></span>
+        <span class="text-xs uppercase tracking-[0.3em] text-muted font-medium">01 — Explore</span>
       </div>
+      <h2 class="font-display text-section uppercase leading-[0.9]">OUR<br />WORLD</h2>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-[10px] text-muted/40 uppercase tracking-[0.15em] hidden md:block">← Click to explore →</span>
+      <span class="text-[10px] text-muted/40 uppercase tracking-[0.15em] block md:hidden">← Tap to explore →</span>
+    </div>
+  </div>
+  
+  <!-- Horizontal Scroll Container -->
+  <div class="pl-6 md:pl-14 overflow-x-auto overflow-y-hidden" 
+       style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch; padding-bottom: 20px;">
+    
+    <div class="flex gap-4 md:gap-6" style="width: max-content; padding-right: 20px;">
       
-      <div class="pl-6 md:pl-14">
-        <div id="world-section" style="padding-top:40px;">
-          <div id="world-track" class="horizontal-track">
-            
-            <div class="world-panel relative overflow-hidden rounded-lg" data-cursor="view">
-              <img src="https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=1600&auto=format&fit=crop" alt="Warm wood-accented hospitality interior with plants" class="w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              <div class="absolute left-6 bottom-6 label-light text-xs md:text-sm">01 — HOSPITALITY</div>
-            </div>
-            
-            <div class="world-panel relative overflow-hidden rounded-lg" data-cursor="view">
-              <img src="https://images.unsplash.com/photo-1663530761401-15eefb544889?q=80&w=1600&auto=format&fit=crop" alt="Chef finishing a plated dish with sauce" class="w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              <div class="absolute left-6 bottom-6 label-light text-xs md:text-sm">02 — DINING</div>
-            </div>
-            
-            <div class="world-panel relative overflow-hidden rounded-lg" data-cursor="view">
-              <img src="https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=1600&auto=format&fit=crop" alt="Living room with checkered floor and natural light" class="w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              <div class="absolute left-6 bottom-6 label-light text-xs md:text-sm">03 — LIFESTYLE</div>
-            </div>
-            
-            <div class="world-panel relative overflow-hidden rounded-lg" data-cursor="view">
-              <img src="https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=1600&auto=format&fit=crop" alt="Warm canopy lights strung across an evening venue" class="w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              <div class="absolute left-6 bottom-6 label-light text-xs md:text-sm">04 — EXPERIENCES</div>
-            </div>
-            
-            <div class="world-panel relative overflow-hidden rounded-lg" data-cursor="view">
-              <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1600&auto=format&fit=crop" alt="Guests gathered together inside a softly lit venue" class="w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              <div class="absolute left-6 bottom-6 label-light text-xs md:text-sm">05 — EVENTS</div>
-            </div>
-            
-            <div class="world-panel relative overflow-hidden rounded-lg" data-cursor="view">
-              <img src="https://images.unsplash.com/photo-1602232037779-30b01ac3c457?q=80&w=1600&auto=format&fit=crop" alt="Minimal wooden furnishings inside a boutique retail space" class="w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-              <div class="absolute left-6 bottom-6 label-light text-xs md:text-sm">06 — RETAIL</div>
-            </div>
-          </div>
+      <!-- Panel 1: HOSPITALITY -->
+      <div class="relative overflow-hidden rounded-lg flex-shrink-0 group cursor-pointer" 
+           style="width: 260px; height: 360px; md:width: 320px; md:height: 440px;" 
+           onclick="openWorldPopup('HOSPITALITY', '01', 'https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=1600&auto=format&fit=crop', 'Warm, considered spaces for rest', 'Our hospitality philosophy is rooted in the belief that true luxury is measured in quiet moments. Every property is designed to feel like a sanctuary — from the curated art on the walls to the carefully selected linens. We create spaces where guests can disconnect, recharge, and feel truly at home, no matter where they are in the world.')">
+        <img src="https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=800&auto=format&fit=crop" 
+             alt="Hospitality" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute left-5 bottom-5">
+          <span class="text-[10px] text-champagne/60 font-medium tracking-[0.3em]">01</span>
+          <div class="text-white/90 font-display text-lg md:text-xl mt-1">HOSPITALITY</div>
+          <p class="text-white/40 text-[10px] md:text-xs mt-1 max-w-[180px] leading-relaxed">Warm, considered spaces for rest</p>
         </div>
       </div>
-    </section>
+      
+      <!-- Panel 2: DINING -->
+      <div class="relative overflow-hidden rounded-lg flex-shrink-0 group cursor-pointer" 
+           style="width: 260px; height: 360px; md:width: 320px; md:height: 440px;" 
+           onclick="openWorldPopup('DINING', '02', 'https://images.unsplash.com/photo-1663530761401-15eefb544889?q=80&w=1600&auto=format&fit=crop', 'Seasonal tasting menus, crafted daily', 'Dining at HABIT is an experience that engages all the senses. Our culinary team works directly with local farmers and artisans to source the finest seasonal ingredients. Each menu tells a story of its region, evolving with the harvest to ensure every plate is fresh, vibrant, and unforgettable. From intimate chef\'s tables to grand dining rooms, we create spaces where food becomes memory.')">
+        <img src="https://images.unsplash.com/photo-1663530761401-15eefb544889?q=80&w=800&auto=format&fit=crop" 
+             alt="Dining" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute left-5 bottom-5">
+          <span class="text-[10px] text-champagne/60 font-medium tracking-[0.3em]">02</span>
+          <div class="text-white/90 font-display text-lg md:text-xl mt-1">DINING</div>
+          <p class="text-white/40 text-[10px] md:text-xs mt-1 max-w-[180px] leading-relaxed">Seasonal tasting menus, crafted daily</p>
+        </div>
+      </div>
+      
+      <!-- Panel 3: LIFESTYLE -->
+      <div class="relative overflow-hidden rounded-lg flex-shrink-0 group cursor-pointer" 
+           style="width: 260px; height: 360px; md:width: 320px; md:height: 440px;" 
+           onclick="openWorldPopup('LIFESTYLE', '03', 'https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=1600&auto=format&fit=crop', 'Spaces designed for living well', 'Lifestyle at HABIT is about more than aesthetics — it\'s about how a space makes you feel. Our design philosophy blends contemporary minimalism with warmth and texture, creating environments that are both beautiful and functional. We believe that the spaces we inhabit shape our wellbeing, and we design every detail with intention — from natural light to material choices.')">
+        <img src="https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=800&auto=format&fit=crop" 
+             alt="Lifestyle" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute left-5 bottom-5">
+          <span class="text-[10px] text-champagne/60 font-medium tracking-[0.3em]">03</span>
+          <div class="text-white/90 font-display text-lg md:text-xl mt-1">LIFESTYLE</div>
+          <p class="text-white/40 text-[10px] md:text-xs mt-1 max-w-[180px] leading-relaxed">Spaces designed for living well</p>
+        </div>
+      </div>
+      
+      <!-- Panel 4: EXPERIENCES -->
+      <div class="relative overflow-hidden rounded-lg flex-shrink-0 group cursor-pointer" 
+           style="width: 260px; height: 360px; md:width: 320px; md:height: 440px;" 
+           onclick="openWorldPopup('EXPERIENCES', '04', 'https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=1600&auto=format&fit=crop', 'Curated moments that linger', 'Experiences at HABIT are designed to be remembered. From private dining events to exclusive cultural immersions, we create moments that transcend the ordinary. Our team works tirelessly to understand what makes each guest unique, curating experiences that feel personal, authentic, and deeply meaningful. Because we believe the best memories are made when you least expect them.')">
+        <img src="https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=800&auto=format&fit=crop" 
+             alt="Experiences" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute left-5 bottom-5">
+          <span class="text-[10px] text-champagne/60 font-medium tracking-[0.3em]">04</span>
+          <div class="text-white/90 font-display text-lg md:text-xl mt-1">EXPERIENCES</div>
+          <p class="text-white/40 text-[10px] md:text-xs mt-1 max-w-[180px] leading-relaxed">Curated moments that linger</p>
+        </div>
+      </div>
+      
+      <!-- Panel 5: EVENTS -->
+      <div class="relative overflow-hidden rounded-lg flex-shrink-0 group cursor-pointer" 
+           style="width: 260px; height: 360px; md:width: 320px; md:height: 440px;" 
+           onclick="openWorldPopup('EVENTS', '05', 'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1600&auto=format&fit=crop', 'Gatherings built for connection', 'Events are where stories are shared and connections are forged. HABIT brings people together through thoughtfully designed gatherings — from intimate dinners to large-scale celebrations. We believe in the power of human connection and create environments that foster genuine interaction, meaningful conversation, and lasting memories. Every detail is considered, from the lighting to the guest list.')">
+        <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=800&auto=format&fit=crop" 
+             alt="Events" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute left-5 bottom-5">
+          <span class="text-[10px] text-champagne/60 font-medium tracking-[0.3em]">05</span>
+          <div class="text-white/90 font-display text-lg md:text-xl mt-1">EVENTS</div>
+          <p class="text-white/40 text-[10px] md:text-xs mt-1 max-w-[180px] leading-relaxed">Gatherings built for connection</p>
+        </div>
+      </div>
+      
+      <!-- Panel 6: RETAIL -->
+      <div class="relative overflow-hidden rounded-lg flex-shrink-0 group cursor-pointer" 
+           style="width: 260px; height: 360px; md:width: 320px; md:height: 440px;" 
+           onclick="openWorldPopup('RETAIL', '06', 'https://images.unsplash.com/photo-1602232037779-30b01ac3c457?q=80&w=1600&auto=format&fit=crop', 'Curated objects, thoughtful design', 'Retail at HABIT is about discovery. Our curated collections feature objects that tell a story — from artisanal ceramics to handcrafted furniture. Each piece is selected for its quality, beauty, and the craft behind it. We believe that the things we surround ourselves with should inspire us, and our retail spaces are designed to do just that.')">
+        <img src="https://images.unsplash.com/photo-1602232037779-30b01ac3c457?q=80&w=800&auto=format&fit=crop" 
+             alt="Retail" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+        <div class="absolute left-5 bottom-5">
+          <span class="text-[10px] text-champagne/60 font-medium tracking-[0.3em]">06</span>
+          <div class="text-white/90 font-display text-lg md:text-xl mt-1">RETAIL</div>
+          <p class="text-white/40 text-[10px] md:text-xs mt-1 max-w-[180px] leading-relaxed">Curated objects, thoughtful design</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- WORLD POPUP / MODAL -->
+<div id="worldPopup" class="fixed inset-0 z-[1000] flex items-center justify-center px-4 md:px-8" 
+     style="display: none; background: rgba(0,0,0,0.7); backdrop-filter: blur(12px);">
+  
+  <div class="relative bg-[#F7F4EE] max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl" 
+       style="animation: modalIn 0.4s cubic-bezier(0.77, 0, 0.18, 1);">
+    
+    <!-- Close Button -->
+    <button onclick="closeWorldPopup()" 
+            class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 transition-colors text-2xl text-[#14130F]">
+      ✕
+    </button>
+    
+    <!-- Image -->
+    <div class="relative overflow-hidden aspect-[16/9]">
+      <img id="worldPopupImage" src="" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+      <div class="absolute bottom-6 left-6">
+        <span id="worldPopupNumber" class="text-[10px] text-champagne/60 font-medium tracking-[0.3em]">01</span>
+        <h3 id="worldPopupTitle" class="font-display text-2xl md:text-4xl text-[#F5F2EC] mt-1">HOSPITALITY</h3>
+        <p id="worldPopupSubtitle" class="text-white/60 text-sm mt-1">Warm, considered spaces for rest</p>
+      </div>
+    </div>
+    
+    <!-- Content -->
+    <div class="p-6 md:p-10">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="w-12 h-px bg-champagne/50"></span>
+        <span class="text-xs uppercase tracking-[0.3em] text-muted font-medium">About</span>
+      </div>
+      <p id="worldPopupDescription" class="text-muted text-base md:text-lg leading-relaxed">
+        Our hospitality philosophy is rooted in the belief that true luxury is measured in quiet moments.
+      </p>
+      
+      <!-- Key Highlights -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[#14130F]/5">
+        <div>
+          <span class="text-xs uppercase tracking-[0.2em] text-muted/50 font-medium">Location</span>
+          <p class="font-display text-lg mt-1">Global</p>
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-[0.2em] text-muted/50 font-medium">Experience</span>
+          <p class="font-display text-lg mt-1">Curated</p>
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-[0.2em] text-muted/50 font-medium">Since</span>
+          <p class="font-display text-lg mt-1">2012</p>
+        </div>
+      </div>
+      
+      <!-- CTA -->
+      <div class="mt-8 pt-8 border-t border-[#14130F]/5">
+        <a href="#" class="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.15em] text-[#14130F] hover:text-champagne transition-colors">
+          <span>Explore More</span>
+          <span class="text-lg group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes modalIn {
+    0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  /* Close button hover */
+  .world-popup-close:hover {
+    transform: rotate(90deg);
+  }
+  
+  /* Responsive popup */
+  @media (max-width: 768px) {
+    #worldPopup .max-w-4xl {
+      max-height: 95vh;
+      margin: 10px;
+    }
+  }
+</style>
+
+<script>
+  // World Popup Functions
+  function openWorldPopup(title, number, image, subtitle, description) {
+    document.getElementById('worldPopupTitle').textContent = title;
+    document.getElementById('worldPopupNumber').textContent = number;
+    document.getElementById('worldPopupImage').src = image;
+    document.getElementById('worldPopupSubtitle').textContent = subtitle;
+    document.getElementById('worldPopupDescription').textContent = description;
+    
+    document.getElementById('worldPopup').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeWorldPopup() {
+    document.getElementById('worldPopup').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close on background click
+  document.getElementById('worldPopup').addEventListener('click', function(e) {
+    if (e.target === this) closeWorldPopup();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeWorldPopup();
+  });
+</script>
     
     <!-- FEATURED BRANDS -->
     <section class="bg-[#F7F4EE] pt-16 md:pt-40 border-t hairline">
@@ -599,33 +790,166 @@
     </section>
     
     <!-- JOURNAL -->
-    <section class="bg-[#F7F4EE] pt-16 md:pt-40 px-6 md:px-14 border-t hairline">
-      <div class="flex flex-wrap items-end justify-between gap-4 mb-6 md:mb-16">
-        <h2 class="font-display text-section uppercase leading-[0.9]">THE<br/>JOURNAL</h2>
-        <a href="pages/journal.html" class="btn-editorial hidden md:inline-flex"><span class="underline"></span>VIEW ALL <span class="arrow">→</span></a>
+<section class="bg-[#F7F4EE] pt-16 md:pt-40 pb-16 px-6 md:px-14 border-t hairline">
+  <div class="flex flex-wrap items-end justify-between gap-4 mb-6 md:mb-12">
+    <div>
+      <div class="flex items-center gap-4 mb-4">
+        <span class="w-12 h-px bg-champagne/50"></span>
+        <span class="text-xs uppercase tracking-[0.3em] text-muted font-medium">05 — Journal</span>
       </div>
-      
-      <div class="journal-list">
-        <a href="journal/article-01.html" data-no-transition class="journal-item group relative flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-8 py-6 md:py-8 border-t hairline">
-          <span class="label text-xs md:text-sm w-24 md:w-32 shrink-0">08.08.2026</span>
-          <span class="font-display text-lg md:text-4xl flex-1 group-hover:text-champagne transition-colors">A new chapter begins in Kyoto.</span>
-          <span class="label text-[8px] md:text-xs shrink-0 px-2 md:px-4 py-1 bg-champagne/10 rounded-full">NEW OPENING</span>
-          <span class="arrow font-display text-xl md:text-2xl transition-transform group-hover:translate-x-2">→</span>
-        </a>
-        <a href="journal/article-02.html" data-no-transition class="journal-item group relative flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-8 py-6 md:py-8 border-t hairline">
-          <span class="label text-xs md:text-sm w-24 md:w-32 shrink-0">21.07.2026</span>
-          <span class="font-display text-lg md:text-4xl flex-1 group-hover:text-champagne transition-colors">Meet the minds behind HABIT GROUP.</span>
-          <span class="label text-[8px] md:text-xs shrink-0 px-2 md:px-4 py-1 bg-champagne/10 rounded-full">PEOPLE</span>
-          <span class="arrow font-display text-xl md:text-2xl transition-transform group-hover:translate-x-2">→</span>
-        </a>
-        <a href="journal/article-03.html" data-no-transition class="journal-item group relative flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-8 py-6 md:py-8 border-t border-b hairline">
-          <span class="label text-xs md:text-sm w-24 md:w-32 shrink-0">12.07.2026</span>
-          <span class="font-display text-lg md:text-4xl flex-1 group-hover:text-champagne transition-colors">Inside our latest creation, AFTERLIGHT.</span>
-          <span class="label text-[8px] md:text-xs shrink-0 px-2 md:px-4 py-1 bg-champagne/10 rounded-full">EXPERIENCE</span>
-          <span class="arrow font-display text-xl md:text-2xl transition-transform group-hover:translate-x-2">→</span>
-        </a>
+      <h2 class="font-display text-section uppercase leading-[0.9]">THE<br/>JOURNAL</h2>
+    </div>
+    <a href="pages/journal.html" class="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.15em] text-muted hover:text-[#14130F] transition-colors">
+      <span>View All</span>
+      <span class="text-lg group-hover:translate-x-1 transition-transform">→</span>
+    </a>
+  </div>
+  
+  <!-- Journal Grid with Images -->
+  <div class="grid md:grid-cols-3 gap-6">
+    
+    <!-- Article 1 -->
+    <a href="journal/article-01.html" data-no-transition class="group block overflow-hidden border border-[#14130F]/5 hover:border-champagne/30 transition-all duration-500 bg-white/40 hover:bg-white/70 backdrop-blur-sm">
+      <div class="relative overflow-hidden aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=800&auto=format&fit=crop" 
+             alt="Kyoto opening" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute top-3 left-3">
+          <span class="text-[8px] uppercase tracking-[0.2em] px-3 py-1 bg-champagne/20 text-champagne border border-champagne/20 rounded-full">NEW OPENING</span>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </div>
-    </section>
+      <div class="p-5">
+        <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">08.08.2026</span>
+        <h3 class="font-display text-xl mt-1 group-hover:text-champagne transition-colors">A new chapter begins in Kyoto.</h3>
+        <p class="text-sm text-muted mt-2 line-clamp-2">Discover our latest property opening in the historic city of Kyoto, blending tradition with modern luxury.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <span class="text-[10px] text-muted/50">5 min read</span>
+          <span class="w-px h-3 bg-[#14130F]/10"></span>
+          <span class="text-champagne text-sm group-hover:translate-x-1 transition-transform">Read More →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 2 -->
+    <a href="journal/article-02.html" data-no-transition class="group block overflow-hidden border border-[#14130F]/5 hover:border-champagne/30 transition-all duration-500 bg-white/40 hover:bg-white/70 backdrop-blur-sm">
+      <div class="relative overflow-hidden aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop" 
+             alt="Meet the minds" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute top-3 left-3">
+          <span class="text-[8px] uppercase tracking-[0.2em] px-3 py-1 bg-champagne/20 text-champagne border border-champagne/20 rounded-full">PEOPLE</span>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </div>
+      <div class="p-5">
+        <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">21.07.2026</span>
+        <h3 class="font-display text-xl mt-1 group-hover:text-champagne transition-colors">Meet the minds behind HABIT GROUP.</h3>
+        <p class="text-sm text-muted mt-2 line-clamp-2">Get to know the creative team driving HABIT's vision forward across hospitality, dining, and lifestyle.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <span class="text-[10px] text-muted/50">4 min read</span>
+          <span class="w-px h-3 bg-[#14130F]/10"></span>
+          <span class="text-champagne text-sm group-hover:translate-x-1 transition-transform">Read More →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 3 -->
+    <a href="journal/article-03.html" data-no-transition class="group block overflow-hidden border border-[#14130F]/5 hover:border-champagne/30 transition-all duration-500 bg-white/40 hover:bg-white/70 backdrop-blur-sm">
+      <div class="relative overflow-hidden aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1623800330578-2cd67efaec75?q=80&w=800&auto=format&fit=crop" 
+             alt="AFTERLIGHT" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute top-3 left-3">
+          <span class="text-[8px] uppercase tracking-[0.2em] px-3 py-1 bg-champagne/20 text-champagne border border-champagne/20 rounded-full">EXPERIENCE</span>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </div>
+      <div class="p-5">
+        <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">12.07.2026</span>
+        <h3 class="font-display text-xl mt-1 group-hover:text-champagne transition-colors">Inside our latest creation, AFTERLIGHT.</h3>
+        <p class="text-sm text-muted mt-2 line-clamp-2">A deep dive into our newest experiential concept that redefines the boundaries of art and hospitality.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <span class="text-[10px] text-muted/50">6 min read</span>
+          <span class="w-px h-3 bg-[#14130F]/10"></span>
+          <span class="text-champagne text-sm group-hover:translate-x-1 transition-transform">Read More →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Optional: Additional articles row (hidden on mobile) -->
+  <div class="grid md:grid-cols-3 gap-6 mt-6 hidden md:grid">
+    
+    <!-- Article 4 -->
+    <a href="journal/article-04.html" data-no-transition class="group block overflow-hidden border border-[#14130F]/5 hover:border-champagne/30 transition-all duration-500 bg-white/40 hover:bg-white/70 backdrop-blur-sm">
+      <div class="relative overflow-hidden aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop" 
+             alt="Tasting menu" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute top-3 left-3">
+          <span class="text-[8px] uppercase tracking-[0.2em] px-3 py-1 bg-champagne/20 text-champagne border border-champagne/20 rounded-full">CULTURE</span>
+        </div>
+      </div>
+      <div class="p-5">
+        <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">30.06.2026</span>
+        <h3 class="font-display text-xl mt-1 group-hover:text-champagne transition-colors">Why we still believe in the tasting menu.</h3>
+        <p class="text-sm text-muted mt-2 line-clamp-2">Exploring the art and philosophy behind our culinary approach to seasonal dining.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <span class="text-[10px] text-muted/50">7 min read</span>
+          <span class="w-px h-3 bg-[#14130F]/10"></span>
+          <span class="text-champagne text-sm group-hover:translate-x-1 transition-transform">Read More →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 5 -->
+    <a href="journal/article-05.html" data-no-transition class="group block overflow-hidden border border-[#14130F]/5 hover:border-champagne/30 transition-all duration-500 bg-white/40 hover:bg-white/70 backdrop-blur-sm">
+      <div class="relative overflow-hidden aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" 
+             alt="MONO Dubai" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute top-3 left-3">
+          <span class="text-[8px] uppercase tracking-[0.2em] px-3 py-1 bg-champagne/20 text-champagne border border-champagne/20 rounded-full">NEWS</span>
+        </div>
+      </div>
+      <div class="p-5">
+        <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">14.06.2026</span>
+        <h3 class="font-display text-xl mt-1 group-hover:text-champagne transition-colors">MONO arrives in Dubai this autumn.</h3>
+        <p class="text-sm text-muted mt-2 line-clamp-2">Our flagship coffee concept is expanding to the Middle East with a stunning new location.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <span class="text-[10px] text-muted/50">4 min read</span>
+          <span class="w-px h-3 bg-[#14130F]/10"></span>
+          <span class="text-champagne text-sm group-hover:translate-x-1 transition-transform">Read More →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 6 -->
+    <a href="journal/article-06.html" data-no-transition class="group block overflow-hidden border border-[#14130F]/5 hover:border-champagne/30 transition-all duration-500 bg-white/40 hover:bg-white/70 backdrop-blur-sm">
+      <div class="relative overflow-hidden aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
+             alt="Head of design" 
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute top-3 left-3">
+          <span class="text-[8px] uppercase tracking-[0.2em] px-3 py-1 bg-champagne/20 text-champagne border border-champagne/20 rounded-full">PEOPLE</span>
+        </div>
+      </div>
+      <div class="p-5">
+        <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">02.06.2026</span>
+        <h3 class="font-display text-xl mt-1 group-hover:text-champagne transition-colors">A conversation with our head of design.</h3>
+        <p class="text-sm text-muted mt-2 line-clamp-2">Insights from the creative mind shaping our spaces and experiences across the globe.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <span class="text-[10px] text-muted/50">5 min read</span>
+          <span class="w-px h-3 bg-[#14130F]/10"></span>
+          <span class="text-champagne text-sm group-hover:translate-x-1 transition-transform">Read More →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
     
     <!-- CAREERS -->
     <section class="bg-[#F7F4EE] py-16 md:py-40 px-6 md:px-14 border-t hairline overflow-hidden relative">
