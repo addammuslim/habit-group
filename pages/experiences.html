@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Experiences — HABIT GROUP</title>
+<meta name="description" content="Dining, hospitality, events, lifestyle and creative experiences curated by HABIT across eight cities." />
+<link rel="canonical" href="./experiences.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { black:'#080808', deepblack:'#050505', warmwhite:'#F5F2EC', ivory:'#EAE5DC', muted:'#8A8780', champagne:'#C9B893', gold:'#B8943C' },
+    fontFamily: { display: ['Cormorant Garamond','serif'], sans: ['Manrope','sans-serif'] },
+  } } };
+</script>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    z-index: 9999;
+  }
+  
+  /* Hero reveal animation */
+  .hero-experiences .reveal-wrap {
+    overflow: hidden;
+    display: block;
+  }
+  
+  .hero-experiences .reveal-line {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: revealUp 1.2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  }
+  
+  .hero-experiences .reveal-wrap:nth-child(1) .reveal-line { animation-delay: 0.4s; }
+  
+  @keyframes revealUp {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  .hero-bg-image {
+    transition: transform 8s ease-out;
+  }
+  
+  .hero-section:hover .hero-bg-image {
+    transform: scale(1.05);
+  }
+  
+  .floating-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(201, 184, 147, 0.12);
+    animation: floatParticle 6s ease-in-out infinite;
+  }
+  
+  @keyframes floatParticle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+    50% { transform: translateY(-30px) scale(1.2); opacity: 0.6; }
+  }
+  
+  /* Experience Card - Grid Style */
+  .exp-card {
+    transition: all 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+    border: 1px solid rgba(20, 19, 15, 0.05);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
+  
+  .exp-card:hover {
+    transform: translateY(-8px);
+    border-color: #C9B893;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .exp-card .exp-image {
+    transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .exp-card:hover .exp-image {
+    transform: scale(1.05);
+  }
+  
+  .exp-card .exp-number {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+  }
+  
+  .exp-card:hover .exp-number {
+    opacity: 0.8;
+    color: #C9B893;
+  }
+  
+  .exp-card .exp-arrow {
+    transition: all 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .exp-card:hover .exp-arrow {
+    transform: translateX(8px);
+  }
+  
+  .exp-card .exp-tag {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: rgba(201, 184, 147, 0.15);
+    color: #8A8780;
+    text-transform: uppercase;
+  }
+  
+  .exp-card .exp-tag.dining { background: rgba(201, 184, 147, 0.2); color: #C9B893; }
+  .exp-card .exp-tag.hospitality { background: rgba(201, 184, 147, 0.15); color: #8A8780; }
+  .exp-card .exp-tag.events { background: rgba(201, 184, 147, 0.2); color: #C9B893; }
+  .exp-card .exp-tag.lifestyle { background: rgba(201, 184, 147, 0.15); color: #8A8780; }
+  .exp-card .exp-tag.creative { background: rgba(201, 184, 147, 0.2); color: #C9B893; }
+  
+  /* Horizontal Scroll - World Panel */
+  .world-panel {
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .world-panel:hover {
+    transform: scale(1.02);
+  }
+  
+  .world-panel .panel-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.05) 100%);
+    transition: all 0.6s ease;
+  }
+  
+  .world-panel:hover .panel-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.02) 100%);
+  }
+  
+  .world-panel .panel-label {
+    transition: all 0.4s ease;
+  }
+  
+  .world-panel:hover .panel-label {
+    transform: translateY(-4px);
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.02);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(201, 184, 147, 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 184, 147, 0.5);
+  }
+  
+  @media (max-width: 768px) {
+    .hero-experiences h1 {
+      font-size: 3rem !important;
+    }
+    .world-panel {
+      min-width: 80vw;
+    }
+  }
+</style>
+</head>
+<body class="bg-[#F7F4EE] text-[#14130F] font-sans">
+
+<div class="grain-overlay"></div>
+<div id="page-transition"></div>
+
+<div id="loader">
+  <div class="loader-mark font-display">HABIT GROUP</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <div class="loader-count">00%</div>
+</div>
+
+<!-- Navigation -->
+<header class="nav-bar on-image">
+  <a href="../index.html" class="nav-logo font-display" data-cursor="link">HABIT GROUP</a>
+  <button class="nav-menu-btn" aria-expanded="false" aria-controls="full-menu">
+    <span class="bars"><span></span><span></span></span>
+    MENU
+  </button>
+</header>
+
+<!-- Fullscreen Menu -->
+<nav id="full-menu" aria-label="Main navigation" style="overflow-y: scroll; ">
+  <div class="menu-bg" data-bg="home" style="background-image:url('https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="about" style="background-image:url('https://images.unsplash.com/photo-1682221568203-16f33b35e57d?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="brands" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="experiences" style="background-image:url('https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="journal" style="background-image:url('https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="careers" style="background-image:url('https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="contact" style="background-image:url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  
+  <div class="relative z-10 max-w-4xl mx-auto w-full" style="position: absolute!important; top:85px; left: 0px!important; right: 0px!important;">
+    <div class="menu-item" data-bg="home"><span class="menu-num font-sans">01</span><a href="../index.html">HOME</a></div>
+    <div class="menu-item" data-bg="about"><span class="menu-num font-sans">02</span><a href="../pages/about.html">ABOUT</a></div>
+    <div class="menu-item" data-bg="brands"><span class="menu-num font-sans">03</span><a href="../pages/brands.html">BRANDS</a></div>
+    <div class="menu-item" data-bg="experiences"><span class="menu-num font-sans">04</span><a href="../pages/experiences.html">EXPERIENCES</a></div>
+    <div class="menu-item" data-bg="journal"><span class="menu-num font-sans">05</span><a href="../pages/journal.html">JOURNAL</a></div>
+    <div class="menu-item" data-bg="careers"><span class="menu-num font-sans">06</span><a href="../pages/careers.html">CAREERS</a></div>
+    <div class="menu-item" data-bg="contact"><span class="menu-num font-sans">07</span><a href="../pages/contact.html">CONTACT</a></div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero - With Background Image -->
+  <section class="hero-section relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=2400&auto=format&fit=crop" 
+           alt="Experiences hero" 
+           class="hero-bg-image w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
+    </div>
+    
+    <div class="floating-particles">
+      <div class="particle w-1 h-1 top-1/4 left-1/4" style="animation-delay: 0s;"></div>
+      <div class="particle w-2 h-2 top-1/3 right-1/4" style="animation-delay: 0.5s;"></div>
+      <div class="particle w-1.5 h-1.5 bottom-1/3 left-1/3" style="animation-delay: 1s;"></div>
+      <div class="particle w-1 h-1 top-2/3 right-1/3" style="animation-delay: 1.5s;"></div>
+      <div class="particle w-2 h-2 bottom-1/4 right-1/4" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="relative z-10 h-full flex flex-col justify-center px-6 md:px-14" style="padding-top: 80px;">
+      <div class="max-w-5xl">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="w-12 h-px bg-champagne/60"></span>
+          <span class="text-xs uppercase tracking-[0.3em] text-champagne/80 font-medium">04 — Experiences</span>
+        </div>
+        
+        <h1 class="hero-experiences font-display text-[3.5rem] md:text-[7rem] uppercase leading-[0.85] text-[#F5F2EC]">
+          <span class="reveal-wrap block"><span data-line class="reveal-line">EXPERIENCES</span></span>
+        </h1>
+        
+        <p class="text-sm md:text-base text-white/50 max-w-md mt-4 font-light tracking-wide">
+          Dining, hospitality, events, lifestyle and creative experiences curated by HABIT across eight cities.
+        </p>
+        
+        <div class="flex items-center gap-6 mt-8">
+          <span class="w-16 h-px bg-champagne/30"></span>
+          <span class="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium">Curated for you</span>
+          <span class="w-16 h-px bg-champagne/30"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Categories - Horizontal Scroll -->
+  <section id="exp-section" class="pt-8 md:pt-12 pb-12 md:pb-16">
+    <div class="px-6 md:px-14 mb-8">
+      <div class="flex items-center gap-4">
+        <span class="w-12 h-px bg-champagne/50"></span>
+        <span class="text-xs uppercase tracking-[0.3em] text-muted font-medium">Explore Categories</span>
+        <span class="text-[10px] text-muted/40">— Scroll to explore</span>
+      </div>
+    </div>
+    <div class="pl-6 md:pl-14">
+      <div id="exp-track" class="horizontal-track">
+        
+        <!-- Dining -->
+        <div class="world-panel relative overflow-hidden min-w-[300px] md:min-w-[400px] lg:min-w-[500px]" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1663530761401-15eefb544889?q=80&w=1600&auto=format&fit=crop" alt="Dining experience" class="w-full h-full object-cover" />
+          <div class="panel-overlay absolute inset-0"></div>
+          <div class="panel-label absolute left-6 bottom-6">
+            <div class="label-light text-xs tracking-[0.3em] text-champagne/80">01</div>
+            <div class="label-light mt-2">DINING</div>
+            <p class="font-display text-xl md:text-2xl mt-1 text-[#F5F2EC]">Tasting menus built around season and place.</p>
+            <p class="text-sm text-white/50 mt-2 max-w-sm leading-relaxed">From farm-to-table experiences to multi-course culinary journeys, each menu tells a story of its region.</p>
+          </div>
+        </div>
+
+        <!-- Hospitality -->
+        <div class="world-panel relative overflow-hidden min-w-[300px] md:min-w-[400px] lg:min-w-[500px]" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=1600&auto=format&fit=crop" alt="Hospitality experience" class="w-full h-full object-cover" />
+          <div class="panel-overlay absolute inset-0"></div>
+          <div class="panel-label absolute left-6 bottom-6">
+            <div class="label-light text-xs tracking-[0.3em] text-champagne/80">02</div>
+            <div class="label-light mt-2">HOSPITALITY</div>
+            <p class="font-display text-xl md:text-2xl mt-1 text-[#F5F2EC]">Stays designed around quiet, considered luxury.</p>
+            <p class="text-sm text-white/50 mt-2 max-w-sm leading-relaxed">Intimate properties where every detail is curated — from the linen to the lighting — for a truly restful escape.</p>
+          </div>
+        </div>
+
+        <!-- Events -->
+        <div class="world-panel relative overflow-hidden min-w-[300px] md:min-w-[400px] lg:min-w-[500px]" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1600&auto=format&fit=crop" alt="Events experience" class="w-full h-full object-cover" />
+          <div class="panel-overlay absolute inset-0"></div>
+          <div class="panel-label absolute left-6 bottom-6">
+            <div class="label-light text-xs tracking-[0.3em] text-champagne/80">03</div>
+            <div class="label-light mt-2">EVENTS</div>
+            <p class="font-display text-xl md:text-2xl mt-1 text-[#F5F2EC]">Gatherings built for the people in the room.</p>
+            <p class="text-sm text-white/50 mt-2 max-w-sm leading-relaxed">From intimate dinners to large-scale celebrations, we design events that foster genuine connection and lasting memories.</p>
+          </div>
+        </div>
+
+        <!-- Lifestyle -->
+        <div class="world-panel relative overflow-hidden min-w-[300px] md:min-w-[400px] lg:min-w-[500px]" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=1600&auto=format&fit=crop" alt="Lifestyle experience" class="w-full h-full object-cover" />
+          <div class="panel-overlay absolute inset-0"></div>
+          <div class="panel-label absolute left-6 bottom-6">
+            <div class="label-light text-xs tracking-[0.3em] text-champagne/80">04</div>
+            <div class="label-light mt-2">LIFESTYLE</div>
+            <p class="font-display text-xl md:text-2xl mt-1 text-[#F5F2EC]">Spaces to slow down, gather, and stay a while.</p>
+            <p class="text-sm text-white/50 mt-2 max-w-sm leading-relaxed">Curated spaces that blend comfort with design — where you can unwind, connect, and find inspiration in the everyday.</p>
+          </div>
+        </div>
+
+        <!-- Creative -->
+        <div class="world-panel relative overflow-hidden min-w-[300px] md:min-w-[400px] lg:min-w-[500px]" data-cursor="view">
+          <img src="https://images.unsplash.com/photo-1623800330578-2cd67efaec75?q=80&w=1600&auto=format&fit=crop" alt="Creative experience" class="w-full h-full object-cover" />
+          <div class="panel-overlay absolute inset-0"></div>
+          <div class="panel-label absolute left-6 bottom-6">
+            <div class="label-light text-xs tracking-[0.3em] text-champagne/80">05</div>
+            <div class="label-light mt-2">CREATIVE</div>
+            <p class="font-display text-xl md:text-2xl mt-1 text-[#F5F2EC]">Collaborations at the edge of art and hospitality.</p>
+            <p class="text-sm text-white/50 mt-2 max-w-sm leading-relaxed">Exclusive partnerships with artists, designers, and makers — creating experiences that challenge and inspire.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Experiences Grid -->
+  <section class="px-6 md:px-14 py-16 md:py-24 border-t hairline">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="w-12 h-px bg-champagne/50"></span>
+        <span class="text-xs uppercase tracking-[0.3em] text-muted font-medium">Featured Experiences</span>
+        <span class="text-[10px] text-muted/40">— 5 Categories</span>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Experience 1: Dining -->
+        <div class="exp-card group">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1663530761401-15eefb544889?q=80&w=800&auto=format&fit=crop" 
+                 alt="Dining" 
+                 class="exp-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="exp-tag dining">Dining</span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3">
+              <span class="exp-number text-xs text-white/30">01</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-xl group-hover:text-champagne transition-colors">Tasting Menus</h3>
+            <p class="text-sm text-muted mt-2 leading-relaxed">Seasonal, multi-course dining experiences that celebrate local ingredients and culinary artistry. Each menu is crafted to tell a story of its region.</p>
+            <div class="flex items-center gap-4 mt-4">
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">8 courses</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">Seasonal</span>
+              <span class="exp-arrow text-champagne text-lg ml-auto">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 2: Hospitality -->
+        <div class="exp-card group">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=800&auto=format&fit=crop" 
+                 alt="Hospitality" 
+                 class="exp-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="exp-tag hospitality">Hospitality</span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3">
+              <span class="exp-number text-xs text-white/30">02</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-xl group-hover:text-champagne transition-colors">Boutique Stays</h3>
+            <p class="text-sm text-muted mt-2 leading-relaxed">Intimate properties in carefully selected locations, where luxury is measured in quiet moments and thoughtful details rather than grand gestures.</p>
+            <div class="flex items-center gap-4 mt-4">
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">8 properties</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">Global</span>
+              <span class="exp-arrow text-champagne text-lg ml-auto">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 3: Events -->
+        <div class="exp-card group">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=800&auto=format&fit=crop" 
+                 alt="Events" 
+                 class="exp-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="exp-tag events">Events</span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3">
+              <span class="exp-number text-xs text-white/30">03</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-xl group-hover:text-champagne transition-colors">Signature Events</h3>
+            <p class="text-sm text-muted mt-2 leading-relaxed">From private dinners to large-scale celebrations, we create immersive events designed to bring people together and create unforgettable moments.</p>
+            <div class="flex items-center gap-4 mt-4">
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">50+ events</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">Annual</span>
+              <span class="exp-arrow text-champagne text-lg ml-auto">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 4: Lifestyle -->
+        <div class="exp-card group">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=800&auto=format&fit=crop" 
+                 alt="Lifestyle" 
+                 class="exp-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="exp-tag lifestyle">Lifestyle</span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3">
+              <span class="exp-number text-xs text-white/30">04</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-xl group-hover:text-champagne transition-colors">Curated Spaces</h3>
+            <p class="text-sm text-muted mt-2 leading-relaxed">Designed for living well — spaces that inspire connection, creativity, and a slower pace of life. Where design meets comfort and functionality.</p>
+            <div class="flex items-center gap-4 mt-4">
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">12 spaces</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">Global</span>
+              <span class="exp-arrow text-champagne text-lg ml-auto">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 5: Creative -->
+        <div class="exp-card group">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1623800330578-2cd67efaec75?q=80&w=800&auto=format&fit=crop" 
+                 alt="Creative" 
+                 class="exp-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="exp-tag creative">Creative</span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3">
+              <span class="exp-number text-xs text-white/30">05</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-xl group-hover:text-champagne transition-colors">Art Collaborations</h3>
+            <p class="text-sm text-muted mt-2 leading-relaxed">Exclusive partnerships with emerging and established artists, bringing unique creative experiences to our spaces — from exhibitions to installations.</p>
+            <div class="flex items-center gap-4 mt-4">
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">15+ artists</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">Ongoing</span>
+              <span class="exp-arrow text-champagne text-lg ml-auto">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 6: Wellness -->
+        <div class="exp-card group">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop" 
+                 alt="Wellness" 
+                 class="exp-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="exp-tag lifestyle">Wellness</span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3">
+              <span class="exp-number text-xs text-white/30">06</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-xl group-hover:text-champagne transition-colors">Wellness Journeys</h3>
+            <p class="text-sm text-muted mt-2 leading-relaxed">Holistic wellness experiences designed to restore balance — from guided meditation and yoga retreats to spa rituals and nutrition workshops.</p>
+            <div class="flex items-center gap-4 mt-4">
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">Retreats</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="text-[10px] text-muted/50 uppercase tracking-[0.15em]">Seasonal</span>
+              <span class="exp-arrow text-champagne text-lg ml-auto">→</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section - FIND YOUR EXPERIENCE with Background Image -->
+<section class="relative px-6 md:px-14 py-20 md:py-28 text-center overflow-hidden border-t hairline">
+  
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2400&auto=format&fit=crop" 
+         alt="Elegant event space" 
+         class="w-full h-full object-cover transition-transform duration-[3s] hover:scale-105" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+  </div>
+  
+  <!-- Floating Particles -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute w-1 h-1 bg-champagne/20 rounded-full top-1/4 left-1/4 animate-pulse"></div>
+    <div class="absolute w-2 h-2 bg-champagne/15 rounded-full top-1/3 right-1/4 animate-pulse delay-300"></div>
+    <div class="absolute w-1.5 h-1.5 bg-champagne/10 rounded-full bottom-1/3 left-1/3 animate-pulse delay-700"></div>
+    <div class="absolute w-1 h-1 bg-champagne/25 rounded-full top-2/3 right-1/3 animate-pulse delay-500"></div>
+    <div class="absolute w-2 h-2 bg-champagne/15 rounded-full bottom-1/4 right-1/4 animate-pulse delay-1000"></div>
+    <div class="absolute w-1.5 h-1.5 bg-champagne/10 rounded-full top-1/2 left-1/2 animate-pulse delay-1200"></div>
+  </div>
+  
+  <!-- Content -->
+  <div class="relative z-10 max-w-2xl mx-auto">
+    <span class="block w-12 h-px bg-champagne/40 mx-auto mb-8"></span>
+    <p class="text-[10px] uppercase tracking-[0.3em] text-champagne/60 font-medium mb-4">Discover</p>
+    <h2 class="font-display text-3xl md:text-5xl uppercase leading-[1.1] text-[#F5F2EC]">
+      FIND YOUR<br/>
+      <span class="text-champagne">EXPERIENCE.</span>
+    </h2>
+    <p class="text-sm md:text-base text-white/50 max-w-sm mx-auto mt-4 font-light tracking-wide">
+      Explore our collection of brands and discover the perfect experience for you.
+    </p>
+    <div class="flex items-center justify-center gap-4 mt-6">
+      <span class="w-12 h-px bg-champagne/20"></span>
+      <span class="w-1.5 h-1.5 rounded-full bg-champagne/30"></span>
+      <span class="w-12 h-px bg-champagne/20"></span>
+    </div>
+    <a href="brands.html" data-magnetic class="group inline-flex items-center gap-4 mt-8 px-8 py-4 bg-champagne/10 hover:bg-champagne/25 border border-champagne/20 hover:border-champagne/40 transition-all duration-500">
+      <span class="text-sm uppercase tracking-[0.15em] text-[#F5F2EC] font-medium">Explore Brands</span>
+      <span class="w-8 h-px bg-champagne/40 group-hover:bg-champagne/80 transition-all duration-300"></span>
+      <span class="text-champagne text-xl group-hover:translate-x-1 transition-transform duration-300">→</span>
+    </a>
+    <span class="block w-12 h-px bg-champagne/20 mx-auto mt-10"></span>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-[#F7F4EE] px-6 md:px-14 py-14 border-t hairline">
+  <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
+    <div>
+      <div class="font-display text-3xl">HABIT GROUP</div>
+      <p class="text-xs text-muted/60 mt-2 uppercase tracking-wider">Est. 2012</p>
+    </div>
+    <div class="flex gap-8 label-ink">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Instagram</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">LinkedIn</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Behance</a>
+    </div>
+    <div class="label text-right">
+      JAKARTA<br/>INDONESIA
+      <span class="block w-8 h-px bg-champagne/30 ml-auto mt-2"></span>
+    </div>
+  </div>
+  <div class="mt-14 pt-6 border-t hairline flex flex-col md:flex-row justify-between gap-4 label">
+    <span>© 2026 HABIT GROUP</span>
+    <div class="flex gap-6">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">PRIVACY</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">TERMS</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/page-transition.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Horizontal Scroll
+    if (window.NOIRE && window.NOIRE.horizontalScroll) {
+      window.NOIRE.horizontalScroll('#exp-section', '#exp-track');
+    }
+  });
+</script>
+</body>
+</html>

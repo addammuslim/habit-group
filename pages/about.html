@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — HABIT GROUP</title>
+<meta name="description" content="HABIT is a modern lifestyle and experience group. Learn our story, philosophy, approach and the people behind twelve years of distinctive brands." />
+<link rel="canonical" href="./about.html" />
+<meta property="og:title" content="About — HABIT GROUP" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { black:'#080808', deepblack:'#050505', warmwhite:'#F5F2EC', ivory:'#EAE5DC', muted:'#8A8780', champagne:'#C9B893', gold:'#B8943C' },
+    fontFamily: { display: ['Cormorant Garamond','serif'], sans: ['Manrope','sans-serif'] },
+  } } };
+</script>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  /* Additional enhancements */
+  .hero-about .reveal-wrap {
+    overflow: hidden;
+    display: block;
+  }
+  
+  .hero-about .reveal-line {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: revealUp 1.2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  }
+  
+  .hero-about .reveal-wrap:nth-child(1) .reveal-line { animation-delay: 0.4s; }
+  .hero-about .reveal-wrap:nth-child(2) .reveal-line { animation-delay: 0.7s; }
+  .hero-about .reveal-wrap:nth-child(3) .reveal-line { animation-delay: 1.0s; }
+  
+  @keyframes revealUp {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  .stat-number {
+    background: linear-gradient(135deg, #14130F 0%, #C9B893 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .leadership-card {
+    transition: all 0.5s ease;
+  }
+  
+  .leadership-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .leadership-card .avatar {
+    transition: all 0.5s ease;
+  }
+  
+  .leadership-card:hover .avatar {
+    transform: scale(1.05);
+  }
+  
+  .approach-item {
+    transition: all 0.4s ease;
+    cursor: default;
+  }
+  
+  .approach-item:hover {
+    padding-left: 1.5rem;
+    border-color: #C9B893;
+  }
+  
+  .approach-item .number {
+    transition: all 0.4s ease;
+  }
+  
+  .approach-item:hover .number {
+    color: #C9B893;
+  }
+  
+  .floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.03;
+  }
+  
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    z-index: 9999;
+  }
+  
+  .hero-bg-image {
+    transition: transform 8s ease-out;
+  }
+  
+  .hero-section:hover .hero-bg-image {
+    transform: scale(1.05);
+  }
+  
+  .cta-glow {
+    box-shadow: 0 0 60px rgba(201, 184, 147, 0.05);
+  }
+  
+  .cta-glow:hover {
+    box-shadow: 0 0 80px rgba(201, 184, 147, 0.1);
+  }
+  
+  .floating-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(201, 184, 147, 0.15);
+    animation: floatParticle 6s ease-in-out infinite;
+  }
+  
+  @keyframes floatParticle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-30px) scale(1.2); opacity: 0.8; }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-about h1 {
+      font-size: 2.8rem !important;
+    }
+  }
+</style>
+</head>
+<body class="bg-[#F7F4EE] text-[#14130F] font-sans">
+
+<div class="grain-overlay"></div>
+<div id="page-transition"></div>
+
+<div id="loader">
+  <div class="loader-mark font-display">HABIT GROUP</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <div class="loader-count">00%</div>
+</div>
+
+<!-- Navigation -->
+<header class="nav-bar on-image">
+  <a href="../index.html" class="nav-logo font-display" data-cursor="link">HABIT GROUP</a>
+  <button class="nav-menu-btn" aria-expanded="false" aria-controls="full-menu">
+    <span class="bars"><span></span><span></span></span>
+    MENU
+  </button>
+</header>
+
+<!-- Fullscreen Menu -->
+<nav id="full-menu" aria-label="Main navigation" style="overflow-y: scroll; ">
+  <div class="menu-bg" data-bg="home" style="background-image:url('https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="about" style="background-image:url('https://images.unsplash.com/photo-1682221568203-16f33b35e57d?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="brands" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="experiences" style="background-image:url('https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="journal" style="background-image:url('https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="careers" style="background-image:url('https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="contact" style="background-image:url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  
+  <div class="relative z-10 max-w-4xl mx-auto w-full" style="position: absolute!important; top:85px; left: 0px!important; right: 0px!important;">
+    <div class="menu-item" data-bg="home"><span class="menu-num font-sans">01</span><a href="../index.html">HOME</a></div>
+    <div class="menu-item" data-bg="about"><span class="menu-num font-sans">02</span><a href="../pages/about.html">ABOUT</a></div>
+    <div class="menu-item" data-bg="brands"><span class="menu-num font-sans">03</span><a href="../pages/brands.html">BRANDS</a></div>
+    <div class="menu-item" data-bg="experiences"><span class="menu-num font-sans">04</span><a href="../pages/experiences.html">EXPERIENCES</a></div>
+    <div class="menu-item" data-bg="journal"><span class="menu-num font-sans">05</span><a href="../pages/journal.html">JOURNAL</a></div>
+    <div class="menu-item" data-bg="careers"><span class="menu-num font-sans">06</span><a href="../pages/careers.html">CAREERS</a></div>
+    <div class="menu-item" data-bg="contact"><span class="menu-num font-sans">07</span><a href="../pages/contact.html">CONTACT</a></div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero - With Background Image -->
+  <section class="hero-section relative h-[90svh] md:h-[100svh] w-full overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2400&auto=format&fit=crop" 
+           alt="Elegant interior with warm lighting" 
+           class="hero-bg-image w-full h-full object-cover" />
+      <!-- Overlay layers -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
+    </div>
+    
+    <!-- Floating Particles -->
+    <div class="floating-particles">
+      <div class="particle w-1 h-1 top-1/4 left-1/4" style="animation-delay: 0s;"></div>
+      <div class="particle w-2 h-2 top-1/3 right-1/4" style="animation-delay: 0.5s;"></div>
+      <div class="particle w-1.5 h-1.5 bottom-1/3 left-1/3" style="animation-delay: 1s;"></div>
+      <div class="particle w-1 h-1 top-2/3 right-1/3" style="animation-delay: 1.5s;"></div>
+      <div class="particle w-2 h-2 bottom-1/4 right-1/4" style="animation-delay: 2s;"></div>
+      <div class="particle w-1 h-1 top-1/2 left-1/2" style="animation-delay: 2.5s;"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 h-full flex flex-col justify-center px-6 md:px-14" style="padding-top: 80px;">
+      <div class="max-w-5xl">
+        <!-- Label -->
+        <div class="flex items-center gap-4 mb-8">
+          <span class="w-12 h-px bg-champagne/60"></span>
+          <span class="text-xs uppercase tracking-[0.3em] text-champagne/80 font-medium">01 — About</span>
+        </div>
+        
+        <!-- Title -->
+        <h1 class="hero-about font-display text-[3.5rem] md:text-[7rem] uppercase leading-[0.85] text-[#F5F2EC]">
+          <span class="reveal-wrap block"><span data-line class="reveal-line">WE BUILD</span></span>
+          <span class="reveal-wrap block"><span data-line class="reveal-line">BRANDS. WE SHAPE</span></span>
+          <span class="reveal-wrap block"><span data-line class="reveal-line text-champagne">EXPERIENCES.</span></span>
+        </h1>
+        
+        <!-- Description -->
+        <p class="text-sm md:text-base text-white/50 max-w-lg mt-6 font-light tracking-wide">
+          A modern lifestyle and experience group with a singular focus — creating moments that matter.
+        </p>
+        
+        <!-- Divider & Scroll indicator -->
+        <div class="flex items-center gap-6 mt-10">
+          <span class="w-16 h-px bg-champagne/30"></span>
+          <span class="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium">Discover our story</span>
+          <span class="w-16 h-px bg-champagne/30"></span>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- Our Story - Enhanced -->
+  <section class="px-6 md:px-14 py-20 md:py-28 border-t hairline grid md:grid-cols-12 gap-10 md:gap-16 relative overflow-hidden">
+    <div class="floating-shape w-80 h-80 bg-champagne/5 top-1/2 right-0 -translate-y-1/2"></div>
+    
+    <div class="md:col-span-4">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="w-8 h-px bg-champagne/30"></span>
+        <div class="label">OUR STORY</div>
+      </div>
+      <div class="font-display text-[4rem] md:text-[6rem] leading-none text-black/5">2012</div>
+    </div>
+    
+    <div class="md:col-span-6 relative z-10">
+      <p data-fade class="font-display text-2xl md:text-4xl leading-snug">
+        HABIT began in 2012 as a single dining room in Jakarta, built on a simple
+        conviction — that hospitality is <span class="text-champagne italic">a craft</span>, not a transaction.
+      </p>
+      <p data-fade class="mt-8 text-muted text-base md:text-lg leading-relaxed max-w-lg">
+        Twelve years later, that conviction has grown into a collection of brands
+        spanning hospitality, dining, lifestyle and culture, across eight cities. What
+        hasn't changed is the obsession with detail — the belief that a great
+        experience is felt long before, and long after, it is seen.
+      </p>
+      
+      <!-- Milestone tags -->
+      <div class="flex flex-wrap gap-3 mt-8">
+        <span class="text-xs px-4 py-2 border border-champagne/20 rounded-full text-muted uppercase tracking-wider">2012 Founded</span>
+        <span class="text-xs px-4 py-2 border border-champagne/20 rounded-full text-muted uppercase tracking-wider">24 Brands</span>
+        <span class="text-xs px-4 py-2 border border-champagne/20 rounded-full text-muted uppercase tracking-wider">8 Cities</span>
+        <span class="text-xs px-4 py-2 border border-champagne/20 rounded-full text-muted uppercase tracking-wider">2.5M+ Guests</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width Image - Enhanced -->
+  <div data-reveal-image class="mx-6 md:mx-14 aspect-[16/9] md:aspect-[21/9] overflow-hidden shadow-2xl relative">
+    <img src="https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=2200&auto=format&fit=crop" alt="Marble reception desk inside a HABIT property" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
+    
+    <!-- Floating badge -->
+    <div class="absolute bottom-6 left-6 bg-white/10 backdrop-blur-md px-6 py-3 border border-white/10">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-px bg-champagne/60"></span>
+        <span class="text-xs uppercase tracking-[0.2em] text-white/80 font-medium">Since 2012</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Philosophy - Enhanced -->
+  <section class="px-6 md:px-14 py-24 md:py-36 border-t hairline grid md:grid-cols-12 gap-10 md:gap-16 relative overflow-hidden">
+    <div class="floating-shape w-[30rem] h-[30rem] bg-champagne/3 -bottom-40 -right-40"></div>
+    
+    <div class="md:col-span-4">
+      <div class="font-display text-[5rem] md:text-[7rem] leading-none text-black/5">01</div>
+      <div class="label mt-4">OUR PHILOSOPHY</div>
+      <span class="block w-12 h-px bg-champagne/30 mt-4"></span>
+    </div>
+    
+    <div class="md:col-span-7 relative z-10">
+      <blockquote data-fade class="font-display text-2xl md:text-4xl leading-snug text-[#14130F]">
+        "We design for feeling, <span class="text-champagne">not spectacle.</span>"
+      </blockquote>
+      <p data-fade class="mt-6 text-muted text-base md:text-lg leading-relaxed max-w-xl">
+        Every space, menu and interaction is considered from the guest's point of view first — 
+        what they notice, what they remember, and what they tell their friends. 
+        Restraint is a discipline we take as seriously as ambition.
+      </p>
+      
+      <!-- Philosophy pillars -->
+      <div class="grid grid-cols-3 gap-4 mt-10">
+        <div class="text-center p-4 border border-champagne/10 hover:border-champagne/30 transition-all duration-300">
+          <div class="text-2xl mb-1">✦</div>
+          <div class="text-xs uppercase tracking-wider text-muted">Detail</div>
+        </div>
+        <div class="text-center p-4 border border-champagne/10 hover:border-champagne/30 transition-all duration-300">
+          <div class="text-2xl mb-1">✦</div>
+          <div class="text-xs uppercase tracking-wider text-muted">Craft</div>
+        </div>
+        <div class="text-center p-4 border border-champagne/10 hover:border-champagne/30 transition-all duration-300">
+          <div class="text-2xl mb-1">✦</div>
+          <div class="text-xs uppercase tracking-wider text-muted">Restraint</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach - Enhanced -->
+  <section class="px-6 md:px-14 py-24 md:py-36 border-t hairline grid md:grid-cols-12 gap-10 md:gap-16">
+    <div class="md:col-span-4">
+      <div class="font-display text-[5rem] md:text-[7rem] leading-none text-black/5">02</div>
+      <div class="label mt-4">OUR APPROACH</div>
+      <span class="block w-12 h-px bg-champagne/30 mt-4"></span>
+      <p class="text-sm text-muted/60 mt-6 max-w-xs leading-relaxed">
+        Three principles that guide everything we create.
+      </p>
+    </div>
+    
+    <div class="md:col-span-7 space-y-6">
+      <div data-fade class="approach-item border-t hairline pt-6 pl-0 hover:pl-6 transition-all duration-400">
+        <div class="flex items-start gap-6">
+          <span class="number font-display text-4xl text-muted/20">01</span>
+          <div>
+            <h3 class="font-display text-2xl md:text-3xl">Concept before construction</h3>
+            <p class="text-muted mt-2 max-w-lg">Every brand starts as a point of view, refined for years before a single space is built.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div data-fade class="approach-item border-t hairline pt-6 pl-0 hover:pl-6 transition-all duration-400">
+        <div class="flex items-start gap-6">
+          <span class="number font-display text-4xl text-muted/20">02</span>
+          <div>
+            <h3 class="font-display text-2xl md:text-3xl">One team, every discipline</h3>
+            <p class="text-muted mt-2 max-w-lg">Design, culinary, hospitality and marketing sit at the same table from day one.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div data-fade class="approach-item border-t border-b hairline pt-6 pb-6 pl-0 hover:pl-6 transition-all duration-400">
+        <div class="flex items-start gap-6">
+          <span class="number font-display text-4xl text-muted/20">03</span>
+          <div>
+            <h3 class="font-display text-2xl md:text-3xl">Built to be lived in</h3>
+            <p class="text-muted mt-2 max-w-lg">We measure success in return visits, not opening-week headlines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership - Enhanced -->
+  <section class="px-6 md:px-14 py-24 md:py-36 border-t hairline relative overflow-hidden">
+    <div class="floating-shape w-[40rem] h-[40rem] bg-champagne/3 -top-48 -left-48"></div>
+    
+    <div class="relative z-10">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="w-12 h-px bg-champagne/50"></span>
+        <span class="label">03 — LEADERSHIP</span>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+        <!-- Leader 1 -->
+        <div data-fade class="leadership-card group bg-[#F7F4EE] p-6 md:p-8 border border-champagne/10 hover:border-champagne/30 transition-all duration-500">
+          <div class="aspect-square overflow-hidden mb-6 avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" 
+                 alt="Adrian Wirawan" 
+                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="font-display text-2xl md:text-3xl">Adrian Wirawan</h3>
+          <p class="label mt-1">Founder &amp; Chief Executive</p>
+          <span class="block w-8 h-px bg-champagne/30 mt-4 group-hover:w-12 transition-all duration-300"></span>
+        </div>
+        
+        <!-- Leader 2 -->
+        <div data-fade class="leadership-card group bg-[#F7F4EE] p-6 md:p-8 border border-champagne/10 hover:border-champagne/30 transition-all duration-500">
+          <div class="aspect-square overflow-hidden mb-6 avatar">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
+                 alt="Sienna Kartawijaya" 
+                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="font-display text-2xl md:text-3xl">Sienna Kartawijaya</h3>
+          <p class="label mt-1">Chief Creative Officer</p>
+          <span class="block w-8 h-px bg-champagne/30 mt-4 group-hover:w-12 transition-all duration-300"></span>
+        </div>
+        
+        <!-- Leader 3 -->
+        <div data-fade class="leadership-card group bg-[#F7F4EE] p-6 md:p-8 border border-champagne/10 hover:border-champagne/30 transition-all duration-500">
+          <div class="aspect-square overflow-hidden mb-6 avatar">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop" 
+                 alt="Marcus Halim" 
+                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="font-display text-2xl md:text-3xl">Marcus Halim</h3>
+          <p class="label mt-1">Chief Operating Officer</p>
+          <span class="block w-8 h-px bg-champagne/30 mt-4 group-hover:w-12 transition-all duration-300"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers - Enhanced -->
+  <section class="px-6 md:px-14 py-24 md:py-36 border-t hairline relative overflow-hidden">
+    <div class="floating-shape w-64 h-64 bg-champagne/5 -bottom-20 -right-20"></div>
+    <div class="floating-shape w-48 h-48 bg-champagne/5 top-20 left-20"></div>
+    
+    <div class="relative z-10">
+      <div class="flex items-center gap-4 mb-12">
+        <span class="w-12 h-px bg-champagne/50"></span>
+        <span class="label">04 — BY THE NUMBERS</span>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-14 gap-x-6">
+        <div class="text-center">
+          <div class="font-display text-[3rem] md:text-[4.5rem] leading-none stat-number"><span data-count="12" data-suffix="+">0+</span></div>
+          <div class="label mt-2">YEARS</div>
+          <span class="block w-8 h-px bg-champagne/20 mx-auto mt-3"></span>
+        </div>
+        
+        <div class="text-center">
+          <div class="font-display text-[3rem] md:text-[4.5rem] leading-none stat-number"><span data-count="24">0</span></div>
+          <div class="label mt-2">BRANDS</div>
+          <span class="block w-8 h-px bg-champagne/20 mx-auto mt-3"></span>
+        </div>
+        
+        <div class="text-center">
+          <div class="font-display text-[3rem] md:text-[4.5rem] leading-none stat-number"><span data-count="8">0</span></div>
+          <div class="label mt-2">CITIES</div>
+          <span class="block w-8 h-px bg-champagne/20 mx-auto mt-3"></span>
+        </div>
+        
+        <div class="text-center">
+          <div class="font-display text-[3rem] md:text-[4.5rem] leading-none stat-number"><span data-count="2.5" data-decimals="1" data-suffix="M+">0M+</span></div>
+          <div class="label mt-2">GUESTS</div>
+          <span class="block w-8 h-px bg-champagne/20 mx-auto mt-3"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA - With Background Image -->
+<section class="relative px-6 md:px-14 py-24 md:py-32 border-t hairline text-center overflow-hidden">
+  
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2400&auto=format&fit=crop" 
+         alt="Elegant dining table setup" 
+         class="w-full h-full object-cover transition-transform duration-[3s] hover:scale-105" />
+    <!-- Overlay layers -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/60"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+  </div>
+  
+  <!-- Floating Particles -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute w-1 h-1 bg-champagne/20 rounded-full top-1/4 left-1/4 animate-pulse"></div>
+    <div class="absolute w-2 h-2 bg-champagne/15 rounded-full top-1/3 right-1/4 animate-pulse delay-300"></div>
+    <div class="absolute w-1.5 h-1.5 bg-champagne/10 rounded-full bottom-1/3 left-1/3 animate-pulse delay-700"></div>
+    <div class="absolute w-1 h-1 bg-champagne/25 rounded-full top-2/3 right-1/3 animate-pulse delay-500"></div>
+    <div class="absolute w-2 h-2 bg-champagne/15 rounded-full bottom-1/4 right-1/4 animate-pulse delay-1000"></div>
+  </div>
+  
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <!-- Decorative line -->
+    <!-- <span class="block w-16 h-px bg-champagne/40 mx-auto mb-8"></span> -->
+    
+    <!-- Label -->
+    <p class="text-xs text-white uppercase tracking-[0.3em] text-champagne/60 font-medium mb-4">05 — Explore</p>
+    
+    <!-- Main Title -->
+    <h2 class="font-display text-[3rem] md:text-[6rem] uppercase leading-[0.9] text-[#F5F2EC]">
+      MEET THE<br/><span class="text-champagne">COLLECTION.</span>
+    </h2>
+    
+    <!-- Description -->
+    <p class="text-sm md:text-base text-white/90 max-w-sm mx-auto mt-4 font-light tracking-wide">
+      Explore our portfolio of distinctive brands, each crafted with intention.
+    </p>
+    
+    <!-- Divider -->
+    <div class="flex items-center justify-center gap-4 mt-8">
+      <span class="w-12 h-px bg-champagne/20"></span>
+      <span class="w-1.5 h-1.5 rounded-full bg-champagne/30"></span>
+      <span class="w-12 h-px bg-champagne/20"></span>
+    </div>
+    
+    <!-- CTA Button -->
+    <a href="brands.html" data-magnetic class="group inline-flex items-center gap-4 mt-10 px-8 py-4 bg-champagne/10 hover:bg-champagne/20 border border-champagne/20 hover:border-champagne/40 transition-all duration-500">
+      <span class="text-sm uppercase tracking-[0.15em] text-[#F5F2EC] font-medium">View Our Brands</span>
+      <span class="w-8 h-px bg-champagne/40 group-hover:bg-champagne/80 transition-all duration-300"></span>
+      <span class="text-champagne text-xl group-hover:translate-x-1 transition-transform duration-300">→</span>
+    </a>
+    
+    <!-- Bottom decorative -->
+    <!-- <span class="block w-16 h-px bg-champagne/20 mx-auto mt-10"></span> -->
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-[#F7F4EE] px-6 md:px-14 py-14 border-t hairline">
+  <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
+    <div>
+      <div class="font-display text-3xl">HABIT GROUP</div>
+      <p class="text-xs text-muted/60 mt-2 uppercase tracking-wider">Est. 2012</p>
+    </div>
+    <div class="flex gap-8 label-ink">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Instagram</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">LinkedIn</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Behance</a>
+    </div>
+    <div class="label text-right">
+      JAKARTA<br/>INDONESIA
+      <span class="block w-8 h-px bg-champagne/30 ml-auto mt-2"></span>
+    </div>
+  </div>
+  <div class="mt-14 pt-6 border-t hairline flex flex-col md:flex-row justify-between gap-4 label">
+    <span>© 2026 HABIT GROUP</span>
+    <div class="flex gap-6">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">PRIVACY</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">TERMS</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/page-transition.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Journal — HABIT</title>
+<meta name="description" content="News, people and stories from across the HABIT collection." />
+<link rel="canonical" href="./journal.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { black:'#080808', deepblack:'#050505', warmwhite:'#F5F2EC', ivory:'#EAE5DC', muted:'#8A8780', champagne:'#C9B893' },
+    fontFamily: { display: ['Cormorant Garamond','serif'], sans: ['Manrope','sans-serif'] },
+  } } };
+</script>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .filter-btn { color: var(--muted-gray); transition: color .3s ease; }
+  .filter-btn.active, .filter-btn:hover { color: var(--warm-white); }
+  .filter-btn.active { text-decoration: underline; text-underline-offset: 6px; }
+</style>
+</head>
+<body class="bg-[#F7F4EE] text-[#14130F] font-sans">
+
+<div class="grain"></div>
+<div id="page-transition"></div>
+
+<div id="loader">
+  <div class="loader-mark font-display">HABIT GROUP</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <div class="loader-count">00%</div>
+</div>
+
+<!-- Navigation -->
+  <header class="nav-bar">
+    <a href="../index.html" class="nav-logo font-display" data-cursor="link">HABIT GROUP</a>
+    <button class="nav-menu-btn" aria-expanded="false" aria-controls="full-menu">
+      <span class="bars"><span></span><span></span></span>
+      MENU
+    </button>
+  </header>
+  
+  <!-- Fullscreen Menu -->
+  <nav id="full-menu" aria-label="Main navigation" style="overflow-y: scroll; ">
+    <div class="menu-bg" data-bg="home" style="background-image:url('https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+    <div class="menu-bg" data-bg="about" style="background-image:url('https://images.unsplash.com/photo-1682221568203-16f33b35e57d?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+    <div class="menu-bg" data-bg="brands" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+    <div class="menu-bg" data-bg="experiences" style="background-image:url('https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+    <div class="menu-bg" data-bg="journal" style="background-image:url('https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+    <div class="menu-bg" data-bg="careers" style="background-image:url('https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+    <div class="menu-bg" data-bg="contact" style="background-image:url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+    
+    <!-- <button class="menu-close absolute top-7 right-6 md:right-14 label-light" aria-label="Close menu" data-cursor="link">CLOSE ✕</button> -->
+    
+    <div class="relative z-10 max-w-4xl mx-auto w-full" style="position: absolute!important; top:85px; left: 0px!important;
+    right: 0px!important;" >
+    <div class="menu-item" data-bg="home"><span class="menu-num font-sans">01</span><a href="../index.html">HOME</a></div>
+    <div class="menu-item" data-bg="about"><span class="menu-num font-sans">02</span><a href="../pages/about.html">ABOUT</a></div>
+    <div class="menu-item" data-bg="brands"><span class="menu-num font-sans">03</span><a href="../pages/brands.html">BRANDS</a></div>
+    <div class="menu-item" data-bg="experiences"><span class="menu-num font-sans">04</span><a href="../pages/experiences.html">EXPERIENCES</a></div>
+    <div class="menu-item" data-bg="journal"><span class="menu-num font-sans">05</span><a href="../pages/journal.html">JOURNAL</a></div>
+    <div class="menu-item" data-bg="careers"><span class="menu-num font-sans">06</span><a href="../pages/careers.html">CAREERS</a></div>
+    <div class="menu-item" data-bg="contact"><span class="menu-num font-sans">07</span><a href="../pages/contact.html">CONTACT</a></div>
+  </div>
+</nav>
+</nav>
+
+<main class="pt-40 md:pt-52 px-6 md:px-14">
+
+  <div class="label mb-6">STORIES</div>
+  <h1 data-reveal-text class="font-display text-hero uppercase leading-[0.9] mb-14">
+    <span data-line>THE JOURNAL</span>
+  </h1>
+
+  <!-- Featured -->
+  <a href="#" data-no-transition class="group relative block h-[60vh] md:h-[80vh] overflow-hidden mb-16">
+    <img src="https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=2000&auto=format&fit=crop" alt="A new HABIT property opening in Kyoto" class="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+    <div class="absolute left-6 md:left-10 bottom-8 md:bottom-10 max-w-xl">
+      <div class="label-light mb-3">FEATURED — NEW OPENING</div>
+      <h2 class="font-display text-3xl md:text-5xl leading-tight text-[#F5F2EC]">A new chapter begins in Kyoto.</h2>
+    </div>
+  </a>
+
+  <!-- Filters -->
+  <div class="flex flex-wrap gap-6 md:gap-10 label mb-10" id="journal-filters">
+    <button class="filter-btn active" data-filter="all">ALL</button>
+    <button class="filter-btn" data-filter="news">NEWS</button>
+    <button class="filter-btn" data-filter="people">PEOPLE</button>
+    <button class="filter-btn" data-filter="experience">EXPERIENCE</button>
+    <button class="filter-btn" data-filter="culture">CULTURE</button>
+  </div>
+
+  <!-- List -->
+  <div id="journal-list" class="pb-24 md:pb-40">
+    <a href="../journal/article-01.html" data-no-transition data-cat="news" class="journal-entry group flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-8 py-8 border-t hairline">
+      <span class="label w-32 shrink-0">08.08.2026</span>
+      <span class="font-display text-2xl md:text-4xl flex-1 group-hover:text-champagne transition-colors">A new chapter begins in Kyoto.</span>
+      <span class="label shrink-0">NEW OPENING</span>
+      <span class="arrow font-display text-2xl transition-transform group-hover:translate-x-2">→</span>
+    </a>
+    <a href="../journal/article-02.html" data-no-transition data-cat="people" class="journal-entry group flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-8 py-8 border-t hairline">
+      <span class="label w-32 shrink-0">21.07.2026</span>
+      <span class="font-display text-2xl md:text-4xl flex-1 group-hover:text-champagne transition-colors">Meet the minds behind HABIT.</span>
+      <span class="label shrink-0">PEOPLE</span>
+      <span class="arrow font-display text-2xl transition-transform group-hover:translate-x-2">→</span>
+    </a>
+    <a href="../journal/article-03.html" data-no-transition data-cat="experience" class="journal-entry group flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-8 py-8 border-t hairline">
+      <span class="label w-32 shrink-0">12.07.2026</span>
+      <span class="font-display text-2xl md:text-4xl flex-1 group-hover:text-champagne transition-colors">Inside our latest creation, AFTERLIGHT.</span>
+      <span class="label shrink-0">EXPERIENCE</span>
+      <span class="arrow font-display text-2xl transition-transform group-hover:translate-x-2">→</span>
+    </a>
+    <a href="../journal/article-04.html" data-no-transition data-cat="culture" class="journal-entry group flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-8 py-8 border-t hairline">
+      <span class="label w-32 shrink-0">30.06.2026</span>
+      <span class="font-display text-2xl md:text-4xl flex-1 group-hover:text-champagne transition-colors">Why we still believe in the tasting menu.</span>
+      <span class="label shrink-0">CULTURE</span>
+      <span class="arrow font-display text-2xl transition-transform group-hover:translate-x-2">→</span>
+    </a>
+    <a href="../journal/article-05.html" data-no-transition data-cat="news" class="journal-entry group flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-8 py-8 border-t hairline">
+      <span class="label w-32 shrink-0">14.06.2026</span>
+      <span class="font-display text-2xl md:text-4xl flex-1 group-hover:text-champagne transition-colors">MONO arrives in Dubai this autumn.</span>
+      <span class="label shrink-0">NEWS</span>
+      <span class="arrow font-display text-2xl transition-transform group-hover:translate-x-2">→</span>
+    </a>
+    <a href="../journal/article-06.html" data-no-transition data-cat="people" class="journal-entry group flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-8 py-8 border-t border-b hairline">
+      <span class="label w-32 shrink-0">02.06.2026</span>
+      <span class="font-display text-2xl md:text-4xl flex-1 group-hover:text-champagne transition-colors">A conversation with our head of design.</span>
+      <span class="label shrink-0">PEOPLE</span>
+      <span class="arrow font-display text-2xl transition-transform group-hover:translate-x-2">→</span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="bg-[#F7F4EE] px-6 md:px-14 py-14 border-t hairline">
+  <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
+    <div class="font-display text-3xl">HABIT GROUP</div>
+    <div class="flex gap-8 label-ink">
+      <a href="#" class="link-underline">Instagram</a>
+      <a href="#" class="link-underline">LinkedIn</a>
+      <a href="#" class="link-underline">Behance</a>
+    </div>
+    <div class="label text-right">SUKABUMI<br/>INDONESIA</div>
+  </div>
+  <div class="mt-14 pt-6 border-t hairline flex flex-col md:flex-row justify-between gap-4 label">
+    <span>© 2026 HABIT GROUP</span>
+    <div class="flex gap-6"><a href="#" class="link-underline">PRIVACY</a><a href="#" class="link-underline">TERMS</a></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/page-transition.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  document.querySelectorAll('.filter-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.journal-entry').forEach((entry) => {
+        const show = filter === 'all' || entry.dataset.cat === filter;
+        entry.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

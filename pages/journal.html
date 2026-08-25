@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Journal — HABIT GROUP</title>
+<meta name="description" content="News, people and stories from across the HABIT collection." />
+<link rel="canonical" href="./journal.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { black:'#080808', deepblack:'#050505', warmwhite:'#F5F2EC', ivory:'#EAE5DC', muted:'#8A8780', champagne:'#C9B893', gold:'#B8943C' },
+    fontFamily: { display: ['Cormorant Garamond','serif'], sans: ['Manrope','sans-serif'] },
+  } } };
+</script>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    z-index: 9999;
+  }
+  
+  /* Hero reveal animation */
+  .hero-journal .reveal-wrap {
+    overflow: hidden;
+    display: block;
+  }
+  
+  .hero-journal .reveal-line {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: revealUp 1.2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  }
+  
+  .hero-journal .reveal-wrap:nth-child(1) .reveal-line { animation-delay: 0.4s; }
+  
+  @keyframes revealUp {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  .hero-bg-image {
+    transition: transform 8s ease-out;
+  }
+  
+  .hero-section:hover .hero-bg-image {
+    transform: scale(1.05);
+  }
+  
+  .floating-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(201, 184, 147, 0.12);
+    animation: floatParticle 6s ease-in-out infinite;
+  }
+  
+  @keyframes floatParticle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+    50% { transform: translateY(-30px) scale(1.2); opacity: 0.6; }
+  }
+  
+  /* Filter Buttons */
+  .filter-btn {
+    color: #8A8780;
+    transition: all 0.3s ease;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .filter-btn:hover {
+    color: #14130F;
+  }
+  
+  .filter-btn.active {
+    color: #14130F;
+    border-bottom-color: #C9B893;
+  }
+  
+  /* Article Card */
+  .article-card {
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+    border: 1px solid rgba(20, 19, 15, 0.05);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-8px);
+    border-color: #C9B893;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .article-card .article-image {
+    transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .article-card:hover .article-image {
+    transform: scale(1.05);
+  }
+  
+  .article-card .article-tag {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: rgba(201, 184, 147, 0.15);
+    color: #8A8780;
+    text-transform: uppercase;
+  }
+  
+  .article-card .article-tag.news { background: rgba(201, 184, 147, 0.2); color: #C9B893; }
+  .article-card .article-tag.people { background: rgba(201, 184, 147, 0.15); color: #8A8780; }
+  .article-card .article-tag.experience { background: rgba(201, 184, 147, 0.2); color: #C9B893; }
+  .article-card .article-tag.culture { background: rgba(201, 184, 147, 0.15); color: #8A8780; }
+  
+  .article-card .article-arrow {
+    transition: all 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .article-card:hover .article-arrow {
+    transform: translateX(8px);
+  }
+  
+  /* Featured Article */
+  .featured-card {
+    transition: all 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .featured-card:hover .featured-image {
+    transform: scale(1.05);
+  }
+  
+  .featured-card .featured-image {
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.02);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(201, 184, 147, 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 184, 147, 0.5);
+  }
+  
+  @media (max-width: 768px) {
+    .hero-journal h1 {
+      font-size: 3rem !important;
+    }
+  }
+</style>
+</head>
+<body class="bg-[#F7F4EE] text-[#14130F] font-sans">
+
+<div class="grain-overlay"></div>
+<div id="page-transition"></div>
+
+<div id="loader">
+  <div class="loader-mark font-display">HABIT GROUP</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <div class="loader-count">00%</div>
+</div>
+
+<!-- Navigation -->
+<header class="nav-bar on-image">
+  <a href="../index.html" class="nav-logo font-display" data-cursor="link">HABIT GROUP</a>
+  <button class="nav-menu-btn" aria-expanded="false" aria-controls="full-menu">
+    <span class="bars"><span></span><span></span></span>
+    MENU
+  </button>
+</header>
+
+<!-- Fullscreen Menu -->
+<nav id="full-menu" aria-label="Main navigation" style="overflow-y: scroll; ">
+  <div class="menu-bg" data-bg="home" style="background-image:url('https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="about" style="background-image:url('https://images.unsplash.com/photo-1682221568203-16f33b35e57d?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="brands" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="experiences" style="background-image:url('https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="journal" style="background-image:url('https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="careers" style="background-image:url('https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="contact" style="background-image:url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  
+  <div class="relative z-10 max-w-4xl mx-auto w-full" style="position: absolute!important; top:85px; left: 0px!important; right: 0px!important;">
+    <div class="menu-item" data-bg="home"><span class="menu-num font-sans">01</span><a href="../index.html">HOME</a></div>
+    <div class="menu-item" data-bg="about"><span class="menu-num font-sans">02</span><a href="../pages/about.html">ABOUT</a></div>
+    <div class="menu-item" data-bg="brands"><span class="menu-num font-sans">03</span><a href="../pages/brands.html">BRANDS</a></div>
+    <div class="menu-item" data-bg="experiences"><span class="menu-num font-sans">04</span><a href="../pages/experiences.html">EXPERIENCES</a></div>
+    <div class="menu-item" data-bg="journal"><span class="menu-num font-sans">05</span><a href="../pages/journal.html">JOURNAL</a></div>
+    <div class="menu-item" data-bg="careers"><span class="menu-num font-sans">06</span><a href="../pages/careers.html">CAREERS</a></div>
+    <div class="menu-item" data-bg="contact"><span class="menu-num font-sans">07</span><a href="../pages/contact.html">CONTACT</a></div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero - With Background Image -->
+  <section class="hero-section relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=2400&auto=format&fit=crop" 
+           alt="Journal hero" 
+           class="hero-bg-image w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
+    </div>
+    
+    <div class="floating-particles">
+      <div class="particle w-1 h-1 top-1/4 left-1/4" style="animation-delay: 0s;"></div>
+      <div class="particle w-2 h-2 top-1/3 right-1/4" style="animation-delay: 0.5s;"></div>
+      <div class="particle w-1.5 h-1.5 bottom-1/3 left-1/3" style="animation-delay: 1s;"></div>
+      <div class="particle w-1 h-1 top-2/3 right-1/3" style="animation-delay: 1.5s;"></div>
+      <div class="particle w-2 h-2 bottom-1/4 right-1/4" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="relative z-10 h-full flex flex-col justify-center px-6 md:px-14" style="padding-top: 80px;">
+      <div class="max-w-5xl">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="w-12 h-px bg-champagne/60"></span>
+          <span class="text-xs uppercase tracking-[0.3em] text-champagne/80 font-medium">05 — Journal</span>
+        </div>
+        
+        <h1 class="hero-journal font-display text-[3.5rem] md:text-[7rem] uppercase leading-[0.85] text-[#F5F2EC]">
+          <span class="reveal-wrap block"><span data-line class="reveal-line">THE JOURNAL</span></span>
+        </h1>
+        
+        <p class="text-sm md:text-base text-white/50 max-w-md mt-4 font-light tracking-wide">
+          News, people and stories from across the HABIT collection.
+        </p>
+        
+        <div class="flex items-center gap-6 mt-8">
+          <span class="w-16 h-px bg-champagne/30"></span>
+          <span class="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium">Stories that inspire</span>
+          <span class="w-16 h-px bg-champagne/30"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="px-6 md:px-14 py-12 md:py-16 bg-[#F7F4EE]">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Featured Article -->
+      <div class="featured-card group relative overflow-hidden mb-16 border border-[#14130F]/5">
+        <a href="#" data-no-transition class="block">
+          <div class="relative overflow-hidden aspect-[16/9] md:aspect-[21/9]">
+            <img src="https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=2000&auto=format&fit=crop" 
+                 alt="A new HABIT property opening in Kyoto" 
+                 class="featured-image w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            <div class="absolute top-4 left-4">
+              <span class="text-[10px] uppercase tracking-[0.2em] px-3 py-1 bg-champagne/20 text-champagne border border-champagne/20">Featured</span>
+            </div>
+            <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 max-w-xl">
+              <span class="text-xs text-white/60 uppercase tracking-[0.2em]">NEW OPENING</span>
+              <h2 class="font-display text-2xl md:text-4xl lg:text-5xl leading-tight text-[#F5F2EC] mt-2 group-hover:text-champagne transition-colors">A new chapter begins in Kyoto.</h2>
+              <div class="flex items-center gap-4 mt-4">
+                <span class="text-xs text-white/40">08.08.2026</span>
+                <span class="w-px h-4 bg-white/20"></span>
+                <span class="text-xs text-white/40">5 min read</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex flex-wrap items-center gap-6 md:gap-10 mb-10 pb-4 border-b border-[#14130F]/5">
+        <span class="text-xs uppercase tracking-[0.3em] text-muted font-medium">Filter:</span>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="news">News</button>
+        <button class="filter-btn" data-filter="people">People</button>
+        <button class="filter-btn" data-filter="experience">Experience</button>
+        <button class="filter-btn" data-filter="culture">Culture</button>
+        <span class="ml-auto text-xs text-muted/50" id="article-count">6 articles</span>
+      </div>
+
+      <!-- Articles Grid -->
+      <div id="journal-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16 md:pb-24">
+        
+        <!-- Article 1 -->
+        <a href="../journal/article-01.html" data-no-transition data-cat="news" class="article-card group block">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=800&auto=format&fit=crop" 
+                 alt="Kyoto opening" 
+                 class="article-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="article-tag news">News</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">08.08.2026</span>
+            <h3 class="font-display text-xl mt-2 group-hover:text-champagne transition-colors">A new chapter begins in Kyoto.</h3>
+            <p class="text-sm text-muted mt-2 line-clamp-2">Discover our latest property opening in the historic city of Kyoto.</p>
+            <div class="flex items-center gap-3 mt-4">
+              <span class="text-xs text-muted/50">5 min read</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="article-arrow text-champagne text-lg">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="../journal/article-02.html" data-no-transition data-cat="people" class="article-card group block">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop" 
+                 alt="Meet the minds" 
+                 class="article-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="article-tag people">People</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">21.07.2026</span>
+            <h3 class="font-display text-xl mt-2 group-hover:text-champagne transition-colors">Meet the minds behind HABIT.</h3>
+            <p class="text-sm text-muted mt-2 line-clamp-2">Get to know the creative team driving HABIT's vision forward.</p>
+            <div class="flex items-center gap-3 mt-4">
+              <span class="text-xs text-muted/50">4 min read</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="article-arrow text-champagne text-lg">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 3 -->
+        <a href="../journal/article-03.html" data-no-transition data-cat="experience" class="article-card group block">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1623800330578-2cd67efaec75?q=80&w=800&auto=format&fit=crop" 
+                 alt="AFTERLIGHT" 
+                 class="article-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="article-tag experience">Experience</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">12.07.2026</span>
+            <h3 class="font-display text-xl mt-2 group-hover:text-champagne transition-colors">Inside our latest creation, AFTERLIGHT.</h3>
+            <p class="text-sm text-muted mt-2 line-clamp-2">A deep dive into our newest experiential concept.</p>
+            <div class="flex items-center gap-3 mt-4">
+              <span class="text-xs text-muted/50">6 min read</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="article-arrow text-champagne text-lg">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 4 -->
+        <a href="../journal/article-04.html" data-no-transition data-cat="culture" class="article-card group block">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop" 
+                 alt="Tasting menu" 
+                 class="article-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="article-tag culture">Culture</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">30.06.2026</span>
+            <h3 class="font-display text-xl mt-2 group-hover:text-champagne transition-colors">Why we still believe in the tasting menu.</h3>
+            <p class="text-sm text-muted mt-2 line-clamp-2">Exploring the art and philosophy behind our culinary approach.</p>
+            <div class="flex items-center gap-3 mt-4">
+              <span class="text-xs text-muted/50">7 min read</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="article-arrow text-champagne text-lg">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 5 -->
+        <a href="../journal/article-05.html" data-no-transition data-cat="news" class="article-card group block">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" 
+                 alt="MONO Dubai" 
+                 class="article-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="article-tag news">News</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">14.06.2026</span>
+            <h3 class="font-display text-xl mt-2 group-hover:text-champagne transition-colors">MONO arrives in Dubai this autumn.</h3>
+            <p class="text-sm text-muted mt-2 line-clamp-2">Our flagship coffee concept is expanding to the Middle East.</p>
+            <div class="flex items-center gap-3 mt-4">
+              <span class="text-xs text-muted/50">4 min read</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="article-arrow text-champagne text-lg">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 6 -->
+        <a href="../journal/article-06.html" data-no-transition data-cat="people" class="article-card group block">
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
+                 alt="Head of design" 
+                 class="article-image w-full h-full object-cover" />
+            <div class="absolute top-3 left-3">
+              <span class="article-tag people">People</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <span class="text-[10px] text-muted/60 uppercase tracking-[0.15em]">02.06.2026</span>
+            <h3 class="font-display text-xl mt-2 group-hover:text-champagne transition-colors">A conversation with our head of design.</h3>
+            <p class="text-sm text-muted mt-2 line-clamp-2">Insights from the creative mind shaping our spaces.</p>
+            <div class="flex items-center gap-3 mt-4">
+              <span class="text-xs text-muted/50">5 min read</span>
+              <span class="w-px h-3 bg-[#14130F]/10"></span>
+              <span class="article-arrow text-champagne text-lg">→</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Load More -->
+      <div class="text-center pt-8 border-t border-[#14130F]/5">
+        <button class="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.15em] text-muted hover:text-[#14130F] transition-colors">
+          <span>Load More Stories</span>
+          <span class="text-lg group-hover:translate-x-1 transition-transform">→</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-[#F7F4EE] px-6 md:px-14 py-14 border-t hairline">
+  <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
+    <div>
+      <div class="font-display text-3xl">HABIT GROUP</div>
+      <p class="text-xs text-muted/60 mt-2 uppercase tracking-wider">Est. 2012</p>
+    </div>
+    <div class="flex gap-8 label-ink">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Instagram</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">LinkedIn</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Behance</a>
+    </div>
+    <div class="label text-right">
+      JAKARTA<br/>INDONESIA
+      <span class="block w-8 h-px bg-champagne/30 ml-auto mt-2"></span>
+    </div>
+  </div>
+  <div class="mt-14 pt-6 border-t hairline flex flex-col md:flex-row justify-between gap-4 label">
+    <span>© 2026 HABIT GROUP</span>
+    <div class="flex gap-6">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">PRIVACY</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">TERMS</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/page-transition.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        let visibleCount = 0;
+        document.querySelectorAll('.article-card').forEach((entry) => {
+          const show = filter === 'all' || entry.dataset.cat === filter;
+          entry.style.display = show ? '' : 'none';
+          if (show) visibleCount++;
+        });
+        document.getElementById('article-count').textContent = visibleCount + ' articles';
+      });
+    });
+
+    // Load More functionality
+    document.querySelector('.load-more-btn')?.addEventListener('click', function() {
+      // Simulasi load more - dalam implementasi nyata, ini akan fetch data dari server
+      this.textContent = 'Loading...';
+      setTimeout(() => {
+        this.innerHTML = '<span>No more articles</span>';
+        this.disabled = true;
+        this.style.opacity = '0.5';
+      }, 1500);
+    });
+  });
+</script>
+</body>
+</html>

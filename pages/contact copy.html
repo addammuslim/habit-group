@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — HABIT GROUP</title>
+<meta name="description" content="Get in touch with HABIT for partnerships, press, reservations and general enquiries." />
+<link rel="canonical" href="./contact.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { black:'#080808', deepblack:'#050505', warmwhite:'#F5F2EC', ivory:'#EAE5DC', muted:'#8A8780', champagne:'#C9B893', gold:'#B8943C' },
+    fontFamily: { display: ['Cormorant Garamond','serif'], sans: ['Manrope','sans-serif'] },
+  } } };
+</script>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    z-index: 9999;
+  }
+  
+  /* Hero reveal animation */
+  .hero-contact .reveal-wrap {
+    overflow: hidden;
+    display: block;
+  }
+  
+  .hero-contact .reveal-line {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: revealUp 1.2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  }
+  
+  .hero-contact .reveal-wrap:nth-child(1) .reveal-line { animation-delay: 0.3s; }
+  .hero-contact .reveal-wrap:nth-child(2) .reveal-line { animation-delay: 0.6s; }
+  
+  @keyframes revealUp {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Form Styles */
+  .field-group {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .field-group .field {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(20, 19, 15, 0.1);
+    padding: 14px 0;
+    color: #14130F;
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .field-group .field::placeholder {
+    color: #8A8780;
+    font-weight: 300;
+  }
+  
+  .field-group .field:focus {
+    outline: none;
+    border-bottom-color: #C9B893;
+  }
+  
+  .field-group .field:focus + .field-line {
+    width: 100%;
+  }
+  
+  .field-group .field-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #C9B893;
+    transition: width 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .field-group .field-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8A8780;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .field-group .field-label .optional {
+    text-transform: none;
+    opacity: 0.5;
+    font-weight: 300;
+  }
+  
+  .field-error {
+    font-size: 12px;
+    color: #d98757;
+    min-height: 16px;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  
+  /* Contact info cards */
+  .contact-card {
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+    border: 1px solid rgba(20, 19, 15, 0.05);
+    padding: 1.5rem;
+  }
+  
+  .contact-card:hover {
+    border-color: #C9B893;
+    transform: translateY(-4px);
+  }
+  
+  .contact-card .icon {
+    opacity: 0.3;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-card:hover .icon {
+    opacity: 0.8;
+    color: #C9B893;
+  }
+  
+  /* Floating shapes */
+  .floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.03;
+  }
+  
+  .floating-shape-light {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.02;
+  }
+  
+  /* Button */
+  .btn-submit {
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: 16px 32px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #14130F;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+    overflow: hidden;
+  }
+  
+  .btn-submit .btn-bg {
+    position: absolute;
+    inset: 0;
+    background: #14130F;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .btn-submit:hover .btn-bg {
+    transform: scaleX(1);
+  }
+  
+  .btn-submit .btn-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-submit:hover .btn-text {
+    color: #F5F2EC;
+  }
+  
+  .btn-submit .btn-arrow {
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .btn-submit:hover .btn-arrow {
+    transform: translateX(8px);
+  }
+  
+  .btn-submit .btn-line {
+    width: 24px;
+    height: 1px;
+    background: #14130F;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-submit:hover .btn-line {
+    background: #F5F2EC;
+  }
+  
+  /* Success message */
+  #form-success {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  #form-success.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .success-icon {
+    display: inline-block;
+    animation: successPop 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  @keyframes successPop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.02);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(201, 184, 147, 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 184, 147, 0.5);
+  }
+  
+  @media (max-width: 768px) {
+    .hero-contact h1 {
+      font-size: 3rem !important;
+    }
+  }
+</style>
+</head>
+<body class="bg-[#F7F4EE] text-[#14130F] font-sans">
+
+<div class="grain-overlay"></div>
+<div id="page-transition"></div>
+
+<div id="loader">
+  <div class="loader-mark font-display">HABIT GROUP</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <div class="loader-count">00%</div>
+</div>
+
+<!-- Navigation -->
+<header class="nav-bar">
+  <a href="../index.html" class="nav-logo font-display" data-cursor="link">HABIT GROUP</a>
+  <button class="nav-menu-btn" aria-expanded="false" aria-controls="full-menu">
+    <span class="bars"><span></span><span></span></span>
+    MENU
+  </button>
+</header>
+
+<!-- Fullscreen Menu -->
+<nav id="full-menu" aria-label="Main navigation" style="overflow-y: scroll; ">
+  <div class="menu-bg" data-bg="home" style="background-image:url('https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="about" style="background-image:url('https://images.unsplash.com/photo-1682221568203-16f33b35e57d?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="brands" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="experiences" style="background-image:url('https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="journal" style="background-image:url('https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="careers" style="background-image:url('https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="contact" style="background-image:url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  
+  <div class="relative z-10 max-w-4xl mx-auto w-full" style="position: absolute!important; top:85px; left: 0px!important; right: 0px!important;">
+    <div class="menu-item" data-bg="home"><span class="menu-num font-sans">01</span><a href="../index.html">HOME</a></div>
+    <div class="menu-item" data-bg="about"><span class="menu-num font-sans">02</span><a href="../pages/about.html">ABOUT</a></div>
+    <div class="menu-item" data-bg="brands"><span class="menu-num font-sans">03</span><a href="../pages/brands.html">BRANDS</a></div>
+    <div class="menu-item" data-bg="experiences"><span class="menu-num font-sans">04</span><a href="../pages/experiences.html">EXPERIENCES</a></div>
+    <div class="menu-item" data-bg="journal"><span class="menu-num font-sans">05</span><a href="../pages/journal.html">JOURNAL</a></div>
+    <div class="menu-item" data-bg="careers"><span class="menu-num font-sans">06</span><a href="../pages/careers.html">CAREERS</a></div>
+    <div class="menu-item" data-bg="contact"><span class="menu-num font-sans">07</span><a href="../pages/contact.html">CONTACT</a></div>
+  </div>
+</nav>
+
+<main class="pt-40 md:pt-52 px-6 md:px-14 pb-24 md:pb-40 relative overflow-hidden">
+
+  <!-- Floating Shapes -->
+  <div class="floating-shape w-[30rem] h-[30rem] bg-champagne -top-40 -right-40"></div>
+  <div class="floating-shape w-[20rem] h-[20rem] bg-champagne bottom-20 -left-20"></div>
+  <div class="floating-shape-light w-[40rem] h-[40rem] bg-champagne top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+  <div class="grid md:grid-cols-12 gap-12 md:gap-20 relative z-10">
+    
+    <!-- Left Column - Contact Info -->
+    <div class="md:col-span-5">
+      <div class="flex items-center gap-4 mb-8">
+        <span class="w-12 h-px bg-champagne/50"></span>
+        <span class="text-xs uppercase tracking-[0.3em] text-champagne/70 font-medium">07 — Contact</span>
+      </div>
+      
+      <h1 class="hero-contact font-display text-[3.5rem] md:text-[6rem] uppercase leading-[0.88] mb-8">
+        <span class="reveal-wrap block"><span data-line class="reveal-line">LET'S</span></span>
+        <span class="reveal-wrap block"><span data-line class="reveal-line text-champagne">TALK.</span></span>
+      </h1>
+      
+      <p class="text-sm text-[#14130F]/50 max-w-sm font-light tracking-wide mb-12">
+        We'd love to hear from you. Whether you have a question, a project, or just want to say hello.
+      </p>
+
+      <!-- Contact Cards -->
+      <div class="space-y-4">
+        <div class="contact-card group">
+          <div class="flex items-start gap-4">
+            <span class="icon text-2xl">✉</span>
+            <div>
+              <div class="text-xs uppercase tracking-[0.2em] text-[#14130F]/40 font-medium mb-1">General Enquiries</div>
+              <a href="mailto:hello@habit.com" class="font-display text-xl md:text-2xl hover:text-champagne transition-colors">hello@habit.com</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-card group">
+          <div class="flex items-start gap-4">
+            <span class="icon text-2xl">✦</span>
+            <div>
+              <div class="text-xs uppercase tracking-[0.2em] text-[#14130F]/40 font-medium mb-1">Press & Media</div>
+              <a href="mailto:press@habit.com" class="font-display text-xl md:text-2xl hover:text-champagne transition-colors">press@habit.com</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-card group">
+          <div class="flex items-start gap-4">
+            <span class="icon text-2xl">⌂</span>
+            <div>
+              <div class="text-xs uppercase tracking-[0.2em] text-[#14130F]/40 font-medium mb-1">Headquarters</div>
+              <p class="font-display text-xl md:text-2xl">Sukabumi, Indonesia</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-card group">
+          <div class="flex items-start gap-4">
+            <span class="icon text-2xl">◈</span>
+            <div>
+              <div class="text-xs uppercase tracking-[0.2em] text-[#14130F]/40 font-medium mb-1">Partnerships</div>
+              <a href="mailto:partners@habit.com" class="font-display text-xl md:text-2xl hover:text-champagne transition-colors">partners@habit.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Social Links -->
+      <div class="mt-12 pt-8 border-t border-[#14130F]/5">
+        <div class="text-xs uppercase tracking-[0.2em] text-[#14130F]/40 font-medium mb-4">Connect With Us</div>
+        <div class="flex gap-6">
+          <a href="#" class="text-sm text-[#14130F]/50 hover:text-champagne transition-colors font-medium">Instagram</a>
+          <a href="#" class="text-sm text-[#14130F]/50 hover:text-champagne transition-colors font-medium">LinkedIn</a>
+          <a href="#" class="text-sm text-[#14130F]/50 hover:text-champagne transition-colors font-medium">Behance</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column - Form -->
+    <div class="md:col-span-7 md:pt-20">
+      <div class="bg-white/30 backdrop-blur-sm p-8 md:p-10 border border-[#14130F]/5">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="w-8 h-px bg-champagne/50"></span>
+          <span class="text-xs uppercase tracking-[0.2em] text-[#14130F]/40 font-medium">Send us a message</span>
+        </div>
+        
+        <form id="contact-form" novalidate class="space-y-8" aria-label="Contact form">
+          <!-- Name -->
+          <div class="field-group">
+            <label class="field-label" for="name">Name</label>
+            <input class="field" type="text" id="name" name="name" placeholder="Your full name" required minlength="2" />
+            <span class="field-line"></span>
+            <div class="field-error" data-error-for="name"></div>
+          </div>
+          
+          <!-- Email -->
+          <div class="field-group">
+            <label class="field-label" for="email">Email</label>
+            <input class="field" type="email" id="email" name="email" placeholder="you@email.com" required />
+            <span class="field-line"></span>
+            <div class="field-error" data-error-for="email"></div>
+          </div>
+          
+          <!-- Company -->
+          <div class="field-group">
+            <label class="field-label" for="company">Company <span class="optional">(optional)</span></label>
+            <input class="field" type="text" id="company" name="company" placeholder="Your company name" />
+            <span class="field-line"></span>
+          </div>
+          
+          <!-- Message -->
+          <div class="field-group">
+            <label class="field-label" for="message">Message</label>
+            <textarea class="field" id="message" name="message" rows="4" placeholder="Tell us a little about what you have in mind" required minlength="10"></textarea>
+            <span class="field-line"></span>
+            <div class="field-error" data-error-for="message"></div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" data-magnetic class="btn-submit w-full md:w-auto">
+            <span class="btn-bg"></span>
+            <span class="btn-text">
+              <span>Send Message</span>
+              <span class="btn-line"></span>
+              <span class="btn-arrow">→</span>
+            </span>
+          </button>
+
+          <!-- Success Message -->
+          <div id="form-success" class="flex items-center gap-3 mt-4" role="status">
+            <span class="success-icon text-2xl">✓</span>
+            <span class="text-sm text-champagne font-medium">Thank you — your message has been received.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#F7F4EE] px-6 md:px-14 py-14 border-t border-[#14130F]/5">
+  <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
+    <div>
+      <div class="font-display text-3xl">HABIT GROUP</div>
+      <p class="text-xs text-[#14130F]/30 mt-2 uppercase tracking-wider">Est. 2012</p>
+    </div>
+    <div class="flex gap-8 label-ink">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Instagram</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">LinkedIn</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Behance</a>
+    </div>
+    <div class="label text-right">
+      SUKABUMI<br/>INDONESIA
+      <span class="block w-8 h-px bg-champagne/30 ml-auto mt-2"></span>
+    </div>
+  </div>
+  <div class="mt-14 pt-6 border-t border-[#14130F]/5 flex flex-col md:flex-row justify-between gap-4 label">
+    <span>© 2026 HABIT GROUP</span>
+    <div class="flex gap-6">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">PRIVACY</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">TERMS</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/page-transition.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+
+    function setError(field, msg) {
+      const el = form.querySelector(`[data-error-for="${field}"]`);
+      if (el) el.textContent = msg || '';
+    }
+
+    function validateField(field) {
+      const value = form[field].value.trim();
+      let valid = true;
+      
+      if (field === 'name') {
+        if (value.length < 2) { setError('name', 'Please enter your name.'); valid = false; }
+        else setError('name', '');
+      }
+      
+      if (field === 'email') {
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRe.test(value)) { setError('email', 'Please enter a valid email address.'); valid = false; }
+        else setError('email', '');
+      }
+      
+      if (field === 'message') {
+        if (value.length < 10) { setError('message', 'Tell us a bit more (10+ characters).'); valid = false; }
+        else setError('message', '');
+      }
+      
+      return valid;
+    }
+
+    function validate() {
+      let valid = true;
+      ['name', 'email', 'message'].forEach(f => {
+        if (!validateField(f)) valid = false;
+      });
+      return valid;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+      
+      form.reset();
+      success.classList.add('show');
+      
+      setTimeout(() => {
+        success.classList.remove('show');
+      }, 5000);
+    });
+
+    ['name', 'email', 'message'].forEach((f) => {
+      form[f].addEventListener('input', () => validateField(f));
+      form[f].addEventListener('blur', () => validateField(f));
+    });
+  });
+</script>
+</body>
+</html>

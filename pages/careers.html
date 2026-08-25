@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Careers — HABIT GROUP</title>
+<meta name="description" content="Join HABIT GROUP and be part of creating extraordinary experiences. Explore our open positions and career opportunities." />
+<link rel="canonical" href="./careers.html" />
+<meta property="og:title" content="Careers — HABIT GROUP" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { black:'#080808', deepblack:'#050505', warmwhite:'#F5F2EC', ivory:'#EAE5DC', muted:'#8A8780', champagne:'#C9B893', gold:'#B8943C' },
+    fontFamily: { display: ['Cormorant Garamond','serif'], sans: ['Manrope','sans-serif'] },
+  } } };
+</script>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  /* Hero reveal animation */
+  .hero-careers .reveal-wrap {
+    overflow: hidden;
+    display: block;
+  }
+  
+  .hero-careers .reveal-line {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: revealUp 1.2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  }
+  
+  .hero-careers .reveal-wrap:nth-child(1) .reveal-line { animation-delay: 0.3s; }
+  .hero-careers .reveal-wrap:nth-child(2) .reveal-line { animation-delay: 0.6s; }
+  .hero-careers .reveal-wrap:nth-child(3) .reveal-line { animation-delay: 0.9s; }
+  
+  @keyframes revealUp {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    z-index: 9999;
+  }
+  
+  .hero-bg-image {
+    transition: transform 8s ease-out;
+  }
+  
+  .hero-section:hover .hero-bg-image {
+    transform: scale(1.05);
+  }
+  
+  .floating-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(201, 184, 147, 0.12);
+    animation: floatParticle 6s ease-in-out infinite;
+  }
+  
+  @keyframes floatParticle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+    50% { transform: translateY(-30px) scale(1.2); opacity: 0.6; }
+  }
+  
+  /* Job Card */
+  .job-card {
+    transition: all 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+    border: 1px solid rgba(20, 19, 15, 0.06);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+  }
+  
+  .job-card:hover {
+    border-color: #C9B893;
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+  }
+  
+  .job-card .job-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    background: rgba(201, 184, 147, 0.15);
+    color: #8A8780;
+  }
+  
+  .job-card .job-tag.full-time {
+    background: rgba(201, 184, 147, 0.2);
+    color: #C9B893;
+  }
+  
+  /* Popup / Modal */
+  .job-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+  }
+  
+  .job-modal.active {
+    display: flex;
+  }
+  
+  .job-modal-content {
+    background: #F7F4EE;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2.5rem;
+    position: relative;
+    animation: modalIn 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  @keyframes modalIn {
+    0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  .job-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #8A8780;
+    transition: all 0.3s ease;
+  }
+  
+  .job-modal-close:hover {
+    color: #14130F;
+    transform: rotate(90deg);
+  }
+  
+  /* Form Styles */
+  .field-group {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .field-group .field {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(20, 19, 15, 0.1);
+    padding: 12px 0;
+    color: #14130F;
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .field-group .field::placeholder {
+    color: #8A8780;
+    font-weight: 300;
+  }
+  
+  .field-group .field:focus {
+    outline: none;
+    border-bottom-color: #C9B893;
+  }
+  
+  .field-group .field:focus + .field-line {
+    width: 100%;
+  }
+  
+  .field-group .field-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #C9B893;
+    transition: width 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  .field-group .field-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8A8780;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .btn-apply-modal {
+    position: relative;
+    background: #14130F;
+    border: none;
+    padding: 14px 32px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #F5F2EC;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+    overflow: hidden;
+  }
+  
+  .btn-apply-modal:hover {
+    background: #C9B893;
+  }
+  
+  .btn-apply-modal .btn-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .btn-apply-modal .btn-arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-apply-modal:hover .btn-arrow {
+    transform: translateX(6px);
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 1px solid rgba(20, 19, 15, 0.15);
+    padding: 12px 28px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #14130F;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline:hover {
+    border-color: #C9B893;
+    background: rgba(201, 184, 147, 0.05);
+  }
+  
+  /* Success message */
+  #apply-success {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  
+  #apply-success.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* File upload */
+  .file-upload-wrapper {
+    position: relative;
+  }
+  
+  .file-upload-wrapper input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .file-upload-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(20, 19, 15, 0.1);
+    color: #8A8780;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .file-upload-label:hover {
+    border-bottom-color: #C9B893;
+    color: #14130F;
+  }
+  
+  .file-upload-label .file-icon {
+    font-size: 20px;
+    opacity: 0.4;
+  }
+  
+  .file-name {
+    font-size: 13px;
+    color: #14130F;
+    margin-top: 4px;
+  }
+  
+  /* Statistik */
+  .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px solid rgba(20, 19, 15, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .stat-item:hover {
+    border-color: #C9B893;
+    background: rgba(201, 184, 147, 0.03);
+  }
+  
+  /* Value cards */
+  .value-card {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(20, 19, 15, 0.05);
+    transition: all 0.4s ease;
+  }
+  
+  .value-card:hover {
+    border-color: #C9B893;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.04);
+  }
+  
+  .value-card .icon {
+    font-size: 2.5rem;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+  }
+  
+  .value-card:hover .icon {
+    opacity: 0.8;
+    color: #C9B893;
+  }
+  
+  /* Scrollbar modal */
+  .job-modal-content::-webkit-scrollbar {
+    width: 4px;
+  }
+  .job-modal-content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .job-modal-content::-webkit-scrollbar-thumb {
+    background: #C9B893;
+    border-radius: 2px;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-careers h1 {
+      font-size: 2.8rem !important;
+    }
+    .job-modal-content {
+      padding: 1.5rem;
+      margin: 10px;
+    }
+  }
+</style>
+</head>
+<body class="bg-[#F7F4EE] text-[#14130F] font-sans">
+
+<div class="grain-overlay"></div>
+<div id="page-transition"></div>
+
+<div id="loader">
+  <div class="loader-mark font-display">HABIT GROUP</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <div class="loader-count">00%</div>
+</div>
+
+<!-- Navigation -->
+<header class="nav-bar on-image">
+  <a href="../index.html" class="nav-logo font-display" data-cursor="link">HABIT GROUP</a>
+  <button class="nav-menu-btn" aria-expanded="false" aria-controls="full-menu">
+    <span class="bars"><span></span><span></span></span>
+    MENU
+  </button>
+</header>
+
+<!-- Fullscreen Menu -->
+<nav id="full-menu" aria-label="Main navigation" style="overflow-y: scroll; ">
+  <div class="menu-bg" data-bg="home" style="background-image:url('https://images.unsplash.com/photo-1758193783649-13371d7fb8dd?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="about" style="background-image:url('https://images.unsplash.com/photo-1682221568203-16f33b35e57d?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="brands" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="experiences" style="background-image:url('https://images.unsplash.com/photo-1579027989536-b7b1f875659b?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="journal" style="background-image:url('https://images.unsplash.com/photo-1720540244592-b4124532b318?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="careers" style="background-image:url('https://images.unsplash.com/photo-1761501989065-7c98a5d1f773?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  <div class="menu-bg" data-bg="contact" style="background-image:url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=1600&auto=format&fit=crop'); position: fixed;"></div>
+  
+  <div class="relative z-10 max-w-4xl mx-auto w-full" style="position: absolute!important; top:85px; left: 0px!important; right: 0px!important;">
+    <div class="menu-item" data-bg="home"><span class="menu-num font-sans">01</span><a href="../index.html">HOME</a></div>
+    <div class="menu-item" data-bg="about"><span class="menu-num font-sans">02</span><a href="../pages/about.html">ABOUT</a></div>
+    <div class="menu-item" data-bg="brands"><span class="menu-num font-sans">03</span><a href="../pages/brands.html">BRANDS</a></div>
+    <div class="menu-item" data-bg="experiences"><span class="menu-num font-sans">04</span><a href="../pages/experiences.html">EXPERIENCES</a></div>
+    <div class="menu-item" data-bg="journal"><span class="menu-num font-sans">05</span><a href="../pages/journal.html">JOURNAL</a></div>
+    <div class="menu-item" data-bg="careers"><span class="menu-num font-sans">06</span><a href="../pages/careers.html">CAREERS</a></div>
+    <div class="menu-item" data-bg="contact"><span class="menu-num font-sans">07</span><a href="../pages/contact.html">CONTACT</a></div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero - With Background Image -->
+  <section class="hero-section relative h-[100vh] md:h-[100vh] w-full overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2400&auto=format&fit=crop" 
+           alt="Team collaboration" 
+           class="hero-bg-image w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
+    </div>
+    
+    <div class="floating-particles">
+      <div class="particle w-1 h-1 top-1/4 left-1/4" style="animation-delay: 0s;"></div>
+      <div class="particle w-2 h-2 top-1/3 right-1/4" style="animation-delay: 0.5s;"></div>
+      <div class="particle w-1.5 h-1.5 bottom-1/3 left-1/3" style="animation-delay: 1s;"></div>
+      <div class="particle w-1 h-1 top-2/3 right-1/3" style="animation-delay: 1.5s;"></div>
+      <div class="particle w-2 h-2 bottom-1/4 right-1/4" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="relative z-10 h-full flex flex-col justify-center px-6 md:px-14" style="padding-top: 80px;">
+      <div class="max-w-5xl">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="w-12 h-px bg-champagne/60"></span>
+          <span class="text-xs uppercase tracking-[0.3em] text-champagne/80 font-medium">06 — Careers</span>
+        </div>
+        
+        <h1 class="hero-careers font-display text-[3.5rem] md:text-[7rem] uppercase leading-[0.85] text-[#F5F2EC]">
+          <span class="reveal-wrap block"><span data-line class="reveal-line">COME</span></span>
+          <span class="reveal-wrap block"><span data-line class="reveal-line">CREATE</span></span>
+          <span class="reveal-wrap block"><span data-line class="reveal-line text-champagne">WITH US.</span></span>
+        </h1>
+        
+        <p class="text-sm md:text-base text-white/50 max-w-lg mt-6 font-light tracking-wide">
+          We are always looking for curious minds, bold ideas and people who care about the details.
+        </p>
+        
+        <div class="flex items-center gap-6 mt-10">
+          <span class="w-16 h-px bg-champagne/30"></span>
+          <span class="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium">Join our team</span>
+          <span class="w-16 h-px bg-champagne/30"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="px-6 md:px-14 py-16 md:py-20 bg-[#F7F4EE] border-t hairline">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div class="stat-item">
+        <div class="font-display text-3xl md:text-4xl text-champagne">12+</div>
+        <div class="text-xs uppercase tracking-wider text-muted mt-1">Years of Excellence</div>
+      </div>
+      <div class="stat-item">
+        <div class="font-display text-3xl md:text-4xl text-champagne">24</div>
+        <div class="text-xs uppercase tracking-wider text-muted mt-1">Brands</div>
+      </div>
+      <div class="stat-item">
+        <div class="font-display text-3xl md:text-4xl text-champagne">8</div>
+        <div class="text-xs uppercase tracking-wider text-muted mt-1">Cities</div>
+      </div>
+      <div class="stat-item">
+        <div class="font-display text-3xl md:text-4xl text-champagne">500+</div>
+        <div class="text-xs uppercase tracking-wider text-muted mt-1">Team Members</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Culture & Values -->
+  <section class="px-6 md:px-14 py-16 md:py-24 bg-[#F7F4EE] border-t hairline">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div>
+          <div class="flex items-center gap-4 mb-6">
+            <span class="w-12 h-px bg-champagne/50"></span>
+            <span class="text-xs uppercase tracking-[0.3em] text-muted font-medium">Our Culture</span>
+          </div>
+          <h2 class="font-display text-3xl md:text-5xl leading-[1.1]">
+            We hire for <span class="text-champagne">taste</span>,<br/>
+            <span class="text-champagne">care</span> and<br/>
+            follow-through.
+          </h2>
+          <p class="text-muted mt-6 max-w-md leading-relaxed">
+            Then we give people the room to do their best work. We believe in 
+            autonomy, mastery, and purpose — creating an environment where 
+            talented people can thrive.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <span class="text-xs px-4 py-2 border border-champagne/20 rounded-full text-muted uppercase tracking-wider">Autonomy</span>
+            <span class="text-xs px-4 py-2 border border-champagne/20 rounded-full text-muted uppercase tracking-wider">Mastery</span>
+            <span class="text-xs px-4 py-2 border border-champagne/20 rounded-full text-muted uppercase tracking-wider">Purpose</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="value-card">
+            <div class="icon">✦</div>
+            <h3 class="font-display text-lg mt-3">Curiosity</h3>
+            <p class="text-xs text-muted mt-1">Always learning, always exploring</p>
+          </div>
+          <div class="value-card">
+            <div class="icon">✦</div>
+            <h3 class="font-display text-lg mt-3">Craft</h3>
+            <p class="text-xs text-muted mt-1">Obsessed with quality and detail</p>
+          </div>
+          <div class="value-card">
+            <div class="icon">✦</div>
+            <h3 class="font-display text-lg mt-3">Collaboration</h3>
+            <p class="text-xs text-muted mt-1">Better together, cross-discipline</p>
+          </div>
+          <div class="value-card">
+            <div class="icon">✦</div>
+            <h3 class="font-display text-lg mt-3">Integrity</h3>
+            <p class="text-xs text-muted mt-1">Honest, transparent, accountable</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits - What We Offer dengan Background Image -->
+<section class="relative px-6 md:px-14 py-20 md:py-28 border-t hairline overflow-hidden">
+  
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2400&auto=format&fit=crop" 
+         alt="Modern office interior" 
+         class="w-full h-full object-cover" />
+    <!-- Overlay gradasi
+    <div class="absolute inset-0 bg-gradient-to-br from-[#F7F4EE]/95 via-[#F7F4EE]/90 to-[#F7F4EE]/85"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-champagne/5 to-transparent"></div> -->
+  </div>
+  
+  <!-- Decorative Shapes -->
+  <div class="absolute top-20 right-20 w-64 h-64 rounded-full bg-champagne/5 blur-3xl"></div>
+  <div class="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-champagne/5 blur-3xl"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="flex items-center gap-4 mb-10">
+      <span class="w-12 h-px bg-champagne/50"></span>
+      <span class="text-xs uppercase tracking-[0.3em] text-muted font-medium">What We Offer</span>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Benefit cards dengan glassmorphism -->
+      <div class="p-6 border border-white/20 hover:border-champagne/40 transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md group shadow-lg hover:shadow-xl">
+        <div class="text-2xl mb-3 opacity-40 group-hover:opacity-100 group-hover:text-champagne transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 8v4"/>
+            <path d="M12 16h.01"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl">Health &amp; Wellbeing</h3>
+        <p class="text-sm text-muted mt-2 leading-relaxed">Comprehensive health, dental, and vision coverage for you and your family.</p>
+      </div>
+      
+      <div class="p-6 border border-white/20 hover:border-champagne/40 transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md group shadow-lg hover:shadow-xl">
+        <div class="text-2xl mb-3 opacity-40 group-hover:opacity-100 group-hover:text-champagne transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/>
+            <path d="M7 2v20"/>
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <path d="M17 11v6"/>
+            <path d="M9 11v6"/>
+            <path d="M21 11v2"/>
+            <path d="M3 11v2"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl">Cross-Brand Dining</h3>
+        <p class="text-sm text-muted mt-2 leading-relaxed">Complimentary access across the entire HABIT collection for you and guests.</p>
+      </div>
+      
+      <div class="p-6 border border-white/20 hover:border-champagne/40 transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md group shadow-lg hover:shadow-xl">
+        <div class="text-2xl mb-3 opacity-40 group-hover:opacity-100 group-hover:text-champagne transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+            <polyline points="17 6 23 6 23 12"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl">Growth &amp; Mobility</h3>
+        <p class="text-sm text-muted mt-2 leading-relaxed">Move between brands, cities and disciplines. We invest in your development.</p>
+      </div>
+      
+      <div class="p-6 border border-white/20 hover:border-champagne/40 transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md group shadow-lg hover:shadow-xl">
+        <div class="text-2xl mb-3 opacity-40 group-hover:opacity-100 group-hover:text-champagne transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+            <path d="M6 3v2"/>
+            <path d="M18 3v2"/>
+            <line x1="2" y1="11" x2="22" y2="11"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl">Flexible Working</h3>
+        <p class="text-sm text-muted mt-2 leading-relaxed">Hybrid work model with flexibility to work from anywhere.</p>
+      </div>
+      
+      <div class="p-6 border border-white/20 hover:border-champagne/40 transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md group shadow-lg hover:shadow-xl">
+        <div class="text-2xl mb-3 opacity-40 group-hover:opacity-100 group-hover:text-champagne transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            <line x1="2" y1="8" x2="22" y2="8"/>
+            <line x1="2" y1="16" x2="22" y2="16"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl">Travel Opportunities</h3>
+        <p class="text-sm text-muted mt-2 leading-relaxed">Work across our global locations in Jakarta, Singapore, Tokyo, and Dubai.</p>
+      </div>
+      
+      <div class="p-6 border border-white/20 hover:border-champagne/40 transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md group shadow-lg hover:shadow-xl">
+        <div class="text-2xl mb-3 opacity-40 group-hover:opacity-100 group-hover:text-champagne transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+            <line x1="8" y1="7" x2="16" y2="7"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+            <line x1="8" y1="15" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl">Learning Budget</h3>
+        <p class="text-sm text-muted mt-2 leading-relaxed">Annual budget for courses, conferences, and professional development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Open Positions -->
+  <section class="px-6 md:px-14 py-16 md:py-24 bg-[#F7F4EE] border-t hairline">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="w-12 h-px bg-champagne/50"></span>
+        <span class="text-xs uppercase tracking-[0.3em] text-muted font-medium">Open Positions</span>
+        <span class="text-xs bg-champagne/10 px-3 py-1 rounded-full text-champagne font-medium">6 Openings</span>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Job 1 -->
+        <div class="job-card p-6 md:p-8">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-display text-xl md:text-2xl">Creative Director</h3>
+              <div class="flex flex-wrap items-center gap-3 mt-2">
+                <span class="job-tag full-time">Full-time</span>
+                <span class="job-tag">Jakarta</span>
+              </div>
+            </div>
+            <span class="text-2xl opacity-20">✦</span>
+          </div>
+          <p class="text-sm text-muted mt-4 leading-relaxed">Lead creative direction across the HABIT portfolio, from brand identity to spatial design and campaign execution.</p>
+          <div class="flex items-center gap-2 mt-4 text-xs text-muted/60">
+            <span>Posted 2 days ago</span>
+          </div>
+          <button onclick="openJobModal('Creative Director', 'Jakarta', 'Full-time', 'Lead creative direction across the HABIT portfolio, from brand identity to spatial design and campaign execution.', ['8+ years creative leadership experience', 'Strong portfolio across brand, digital, and spatial', 'Experience in hospitality or lifestyle brands'])"
+                  class="mt-4 btn-outline text-sm w-full md:w-auto">
+            View Details →
+          </button>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-card p-6 md:p-8">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-display text-xl md:text-2xl">Marketing Manager</h3>
+              <div class="flex flex-wrap items-center gap-3 mt-2">
+                <span class="job-tag full-time">Full-time</span>
+                <span class="job-tag">Singapore</span>
+              </div>
+            </div>
+            <span class="text-2xl opacity-20">✦</span>
+          </div>
+          <p class="text-sm text-muted mt-4 leading-relaxed">Own brand storytelling and campaign strategy for two of our flagship properties across Southeast Asia.</p>
+          <div class="flex items-center gap-2 mt-4 text-xs text-muted/60">
+            <span>Posted 3 days ago</span>
+          </div>
+          <button onclick="openJobModal('Marketing Manager', 'Singapore', 'Full-time', 'Own brand storytelling and campaign strategy for two of our flagship properties across Southeast Asia.', ['6+ years marketing experience', 'Experience in luxury or hospitality', 'Strong copywriting and campaign management'])"
+                  class="mt-4 btn-outline text-sm w-full md:w-auto">
+            View Details →
+          </button>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-card p-6 md:p-8">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-display text-xl md:text-2xl">Event Producer</h3>
+              <div class="flex flex-wrap items-center gap-3 mt-2">
+                <span class="job-tag full-time">Full-time</span>
+                <span class="job-tag">Dubai</span>
+              </div>
+            </div>
+            <span class="text-2xl opacity-20">✦</span>
+          </div>
+          <p class="text-sm text-muted mt-4 leading-relaxed">Produce signature events end-to-end, from concept development through execution and post-event analysis.</p>
+          <div class="flex items-center gap-2 mt-4 text-xs text-muted/60">
+            <span>Posted 1 week ago</span>
+          </div>
+          <button onclick="openJobModal('Event Producer', 'Dubai', 'Full-time', 'Produce signature events end-to-end, from concept development through execution and post-event analysis.', ['5+ years event production experience', 'Experience with large-scale events', 'Strong project management skills'])"
+                  class="mt-4 btn-outline text-sm w-full md:w-auto">
+            View Details →
+          </button>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="job-card p-6 md:p-8">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-display text-xl md:text-2xl">Brand Manager</h3>
+              <div class="flex flex-wrap items-center gap-3 mt-2">
+                <span class="job-tag full-time">Full-time</span>
+                <span class="job-tag">Tokyo</span>
+              </div>
+            </div>
+            <span class="text-2xl opacity-20">✦</span>
+          </div>
+          <p class="text-sm text-muted mt-4 leading-relaxed">Steward a single brand's voice, quality and growth across every touchpoint in the Japanese market.</p>
+          <div class="flex items-center gap-2 mt-4 text-xs text-muted/60">
+            <span>Posted 2 weeks ago</span>
+          </div>
+          <button onclick="openJobModal('Brand Manager', 'Tokyo', 'Full-time', 'Steward a single brand\'s voice, quality and growth across every touchpoint in the Japanese market.', ['5+ years brand management experience', 'Experience in luxury or lifestyle', 'Japanese language proficiency preferred'])"
+                  class="mt-4 btn-outline text-sm w-full md:w-auto">
+            View Details →
+          </button>
+        </div>
+
+        <!-- Job 5 -->
+        <div class="job-card p-6 md:p-8">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-display text-xl md:text-2xl">Interior Designer</h3>
+              <div class="flex flex-wrap items-center gap-3 mt-2">
+                <span class="job-tag full-time">Full-time</span>
+                <span class="job-tag">Jakarta</span>
+              </div>
+            </div>
+            <span class="text-2xl opacity-20">✦</span>
+          </div>
+          <p class="text-sm text-muted mt-4 leading-relaxed">Design and execute interior concepts for new HABIT properties, from preliminary sketches to final installation.</p>
+          <div class="flex items-center gap-2 mt-4 text-xs text-muted/60">
+            <span>Posted 3 weeks ago</span>
+          </div>
+          <button onclick="openJobModal('Interior Designer', 'Jakarta', 'Full-time', 'Design and execute interior concepts for new HABIT properties, from preliminary sketches to final installation.', ['4+ years interior design experience', 'Strong portfolio of hospitality projects', 'Proficiency in AutoCAD, SketchUp, and Adobe Creative Suite'])"
+                  class="mt-4 btn-outline text-sm w-full md:w-auto">
+            View Details →
+          </button>
+        </div>
+
+        <!-- Job 6 -->
+        <div class="job-card p-6 md:p-8">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-display text-xl md:text-2xl">Executive Chef</h3>
+              <div class="flex flex-wrap items-center gap-3 mt-2">
+                <span class="job-tag full-time">Full-time</span>
+                <span class="job-tag">Sukabumi</span>
+              </div>
+            </div>
+            <span class="text-2xl opacity-20">✦</span>
+          </div>
+          <p class="text-sm text-muted mt-4 leading-relaxed">Lead culinary operations across multiple HABIT dining concepts, menu development, and kitchen team management.</p>
+          <div class="flex items-center gap-2 mt-4 text-xs text-muted/60">
+            <span>Posted 1 month ago</span>
+          </div>
+          <button onclick="openJobModal('Executive Chef', 'Sukabumi', 'Full-time', 'Lead culinary operations across multiple HABIT dining concepts, menu development, and kitchen team management.', ['8+ years culinary leadership experience', 'Experience in fine dining or high-end hospitality', 'Creative menu development skills'])"
+                  class="mt-4 btn-outline text-sm w-full md:w-auto">
+            View Details →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section - Join Talent Pool with Background Image -->
+<section class="relative px-6 md:px-14 py-20 md:py-28 text-center overflow-hidden border-t hairline">
+  
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2400&auto=format&fit=crop" 
+         alt="Modern office interior" 
+         class="w-full h-full object-cover transition-transform duration-[3s] hover:scale-105" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+  </div>
+  
+  <!-- Floating Particles -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute w-1 h-1 bg-champagne/20 rounded-full top-1/4 left-1/4 animate-pulse"></div>
+    <div class="absolute w-2 h-2 bg-champagne/15 rounded-full top-1/3 right-1/4 animate-pulse delay-300"></div>
+    <div class="absolute w-1.5 h-1.5 bg-champagne/10 rounded-full bottom-1/3 left-1/3 animate-pulse delay-700"></div>
+    <div class="absolute w-1 h-1 bg-champagne/25 rounded-full top-2/3 right-1/3 animate-pulse delay-500"></div>
+    <div class="absolute w-2 h-2 bg-champagne/15 rounded-full bottom-1/4 right-1/4 animate-pulse delay-1000"></div>
+    <div class="absolute w-1.5 h-1.5 bg-champagne/10 rounded-full top-1/2 left-1/2 animate-pulse delay-1200"></div>
+  </div>
+  
+  <!-- Content -->
+  <div class="relative z-10 max-w-2xl mx-auto">
+    <span class="block w-12 h-px bg-champagne/40 mx-auto mb-8"></span>
+    <p class="text-[10px] uppercase tracking-[0.3em] text-champagne/60 font-medium mb-4">Always Open</p>
+    <h2 class="font-display text-3xl md:text-5xl uppercase leading-[1.1] text-[#F5F2EC]">
+      Don't see the<br/>
+      <span class="text-champagne">right role?</span>
+    </h2>
+    <p class="text-sm md:text-base text-white/50 max-w-sm mx-auto mt-4 font-light tracking-wide">
+      We're always looking for talented people. Send us your CV and we'll reach out when a position matches your skills.
+    </p>
+    <div class="flex items-center justify-center gap-4 mt-6">
+      <span class="w-12 h-px bg-champagne/20"></span>
+      <span class="w-1.5 h-1.5 rounded-full bg-champagne/30"></span>
+      <span class="w-12 h-px bg-champagne/20"></span>
+    </div>
+    <button onclick="openJobModal('Talent Pool', 'Global', 'Freelance / Full-time', 'We are always looking for talented individuals to join our team. Send us your CV and we\'ll reach out when a position matches your skills.', ['Submit your CV', 'Portfolio or work samples', 'Brief cover letter'])"
+            class="group mt-8 inline-flex items-center gap-4 px-8 py-4 bg-champagne/10 hover:bg-champagne/25 border border-champagne/20 hover:border-champagne/40 transition-all duration-500">
+      <span class="text-sm uppercase tracking-[0.15em] text-[#F5F2EC] font-medium">Join Talent Pool</span>
+      <span class="w-8 h-px bg-champagne/40 group-hover:bg-champagne/80 transition-all duration-300"></span>
+      <span class="text-champagne text-xl group-hover:translate-x-1 transition-transform duration-300">→</span>
+    </button>
+    <span class="block w-12 h-px bg-champagne/20 mx-auto mt-10"></span>
+  </div>
+</section>
+
+</main>
+
+<!-- Job Modal / Popup -->
+<div class="job-modal" id="jobModal">
+  <div class="job-modal-content">
+    <button class="job-modal-close" onclick="closeJobModal()">✕</button>
+    
+    <div id="modal-job-header">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs uppercase tracking-[0.2em] text-muted" id="modal-location">Jakarta</span>
+        <span class="w-px h-4 bg-[#14130F]/10"></span>
+        <span class="text-xs uppercase tracking-[0.2em] text-champagne" id="modal-type">Full-time</span>
+      </div>
+      <h2 class="font-display text-3xl md:text-4xl" id="modal-title">Creative Director</h2>
+    </div>
+    
+    <div class="mt-6 pt-6 border-t border-[#14130F]/5">
+      <h4 class="text-xs uppercase tracking-[0.2em] text-muted font-medium mb-3">About the Role</h4>
+      <p class="text-muted leading-relaxed" id="modal-description">Lead creative direction across the HABIT portfolio...</p>
+    </div>
+    
+    <div class="mt-6 pt-6 border-t border-[#14130F]/5">
+      <h4 class="text-xs uppercase tracking-[0.2em] text-muted font-medium mb-3">Requirements</h4>
+      <ul class="space-y-2" id="modal-requirements">
+        <li class="text-sm text-muted flex items-start gap-3">
+          <span class="text-champagne">•</span>
+          <span>8+ years creative leadership experience</span>
+        </li>
+        <li class="text-sm text-muted flex items-start gap-3">
+          <span class="text-champagne">•</span>
+          <span>Strong portfolio across brand, digital, and spatial</span>
+        </li>
+        <li class="text-sm text-muted flex items-start gap-3">
+          <span class="text-champagne">•</span>
+          <span>Experience in hospitality or lifestyle brands</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Apply Form -->
+    <div class="mt-8 pt-6 border-t border-[#14130F]/5">
+      <h4 class="text-xs uppercase tracking-[0.2em] text-muted font-medium mb-4">Apply for this position</h4>
+      <form id="apply-form" novalidate>
+        <div class="field-group mb-6">
+          <label class="field-label" for="apply-name">Full Name</label>
+          <input class="field" type="text" id="apply-name" placeholder="Your full name" required />
+          <span class="field-line"></span>
+        </div>
+        
+        <div class="field-group mb-6">
+          <label class="field-label" for="apply-email">Email Address</label>
+          <input class="field" type="email" id="apply-email" placeholder="you@email.com" required />
+          <span class="field-line"></span>
+        </div>
+        
+        <div class="field-group mb-6">
+          <label class="field-label" for="apply-phone">Phone Number</label>
+          <input class="field" type="tel" id="apply-phone" placeholder="+62 812 3456 7890" />
+          <span class="field-line"></span>
+        </div>
+        
+        <div class="field-group mb-6">
+          <label class="field-label">Upload CV</label>
+          <div class="file-upload-wrapper">
+            <input type="file" id="apply-cv" accept=".pdf,.doc,.docx" />
+            <div class="file-upload-label">
+              <span class="file-icon">📄</span>
+              <span>Drop your CV here or click to browse</span>
+            </div>
+            <div class="file-name" id="file-name"></div>
+          </div>
+        </div>
+        
+        <div class="field-group mb-6">
+          <label class="field-label" for="apply-linkedin">LinkedIn Profile <span class="optional">(optional)</span></label>
+          <input class="field" type="url" id="apply-linkedin" placeholder="linkedin.com/in/your-profile" />
+          <span class="field-line"></span>
+        </div>
+        
+        <div class="field-group mb-6">
+          <label class="field-label" for="apply-message">Why do you want to join HABIT? <span class="optional">(optional)</span></label>
+          <textarea class="field" id="apply-message" rows="3" placeholder="Tell us what excites you about this role and HABIT"></textarea>
+          <span class="field-line"></span>
+        </div>
+        
+        <button type="submit" class="btn-apply-modal w-full">
+          <span class="btn-text">
+            <span>Submit Application</span>
+            <span class="btn-arrow">→</span>
+          </span>
+        </button>
+        
+        <div id="apply-success" class="flex items-center gap-3 mt-4" role="status">
+          <span class="text-2xl text-champagne">✓</span>
+          <span class="text-sm text-champagne font-medium">Application submitted successfully! We'll be in touch within 3-5 business days.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-[#F7F4EE] px-6 md:px-14 py-14 border-t hairline">
+  <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
+    <div>
+      <div class="font-display text-3xl">HABIT GROUP</div>
+      <p class="text-xs text-muted/60 mt-2 uppercase tracking-wider">Est. 2012</p>
+    </div>
+    <div class="flex gap-8 label-ink">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Instagram</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">LinkedIn</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">Behance</a>
+    </div>
+    <div class="label text-right">
+      JAKARTA<br/>INDONESIA
+      <span class="block w-8 h-px bg-champagne/30 ml-auto mt-2"></span>
+    </div>
+  </div>
+  <div class="mt-14 pt-6 border-t hairline flex flex-col md:flex-row justify-between gap-4 label">
+    <span>© 2026 HABIT GROUP</span>
+    <div class="flex gap-6">
+      <a href="#" class="link-underline hover:text-champagne transition-colors">PRIVACY</a>
+      <a href="#" class="link-underline hover:text-champagne transition-colors">TERMS</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/page-transition.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  // Job Modal Functions
+  function openJobModal(title, location, type, description, requirements) {
+    const modal = document.getElementById('jobModal');
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-location').textContent = location;
+    document.getElementById('modal-type').textContent = type;
+    document.getElementById('modal-description').textContent = description;
+    
+    const reqList = document.getElementById('modal-requirements');
+    reqList.innerHTML = '';
+    if (requirements && requirements.length > 0) {
+      requirements.forEach(req => {
+        const li = document.createElement('li');
+        li.className = 'text-sm text-muted flex items-start gap-3';
+        li.innerHTML = `<span class="text-champagne">•</span><span>${req}</span>`;
+        reqList.appendChild(li);
+      });
+    }
+    
+    // Reset form
+    document.getElementById('apply-form').reset();
+    document.getElementById('apply-success').classList.remove('show');
+    document.getElementById('file-name').textContent = '';
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeJobModal() {
+    document.getElementById('jobModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close modal on background click
+  document.getElementById('jobModal').addEventListener('click', function(e) {
+    if (e.target === this) closeJobModal();
+  });
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeJobModal();
+  });
+
+  // File upload handler
+  document.getElementById('apply-cv').addEventListener('change', function(e) {
+    const fileName = e.target.files[0]?.name || '';
+    document.getElementById('file-name').textContent = fileName;
+    if (fileName) {
+      document.querySelector('.file-upload-label span:last-child').textContent = fileName;
+      document.querySelector('.file-upload-label span:last-child').style.color = '#14130F';
+    }
+  });
+
+  // Apply Form Submit
+  document.getElementById('apply-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('apply-name').value.trim();
+    const email = document.getElementById('apply-email').value.trim();
+    const cv = document.getElementById('apply-cv').files[0];
+    
+    if (!name || !email || !cv) {
+      alert('Please fill in all required fields and upload your CV.');
+      return;
+    }
+    
+    // Simulate submission
+    const btn = this.querySelector('.btn-apply-modal');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    
+    setTimeout(() => {
+      btn.innerHTML = '<span class="btn-text"><span>Submit Application</span><span class="btn-arrow">→</span></span>';
+      btn.disabled = false;
+      document.getElementById('apply-success').classList.add('show');
+      this.reset();
+      document.getElementById('file-name').textContent = '';
+      setTimeout(() => {
+        closeJobModal();
+      }, 3000);
+    }, 1500);
+  });
+</script>
+</body>
+</html>
